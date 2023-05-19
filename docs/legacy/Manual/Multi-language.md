@@ -59,10 +59,8 @@ language pack you would like to download and use.
 
 ### How to Switch Back to English? {#how_to_switch_back_to_english}
 
-![](/docs/legacy/Switch_toggle.png "Switch_toggle.png") To switch back to English,
-you can always click the Switch back toggle button located in the top
-right of the webGui.
-
+To switch back to English, you can always click the Switch back toggle button located in the top right of the webGui.
+![](/docs/legacy/Switch_toggle.png "Switch_toggle.png") 
 ### Developer Requirements for Multi-Language Support {#developer_requirements_for_multi_language_support}
 
 It is necessary for plugin developers to take appropriate action within

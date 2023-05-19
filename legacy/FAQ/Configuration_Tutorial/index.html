@@ -5,7 +5,7 @@
 <meta name="generator" content="Docusaurus v2.4.1">
 <title data-rh="true">Configuration_Tutorial | Unraid Docs</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://docs.unraid.net/img/un-mark-gradient.svg"><meta data-rh="true" name="twitter:image" content="https://docs.unraid.net/img/un-mark-gradient.svg"><meta data-rh="true" property="og:url" content="https://docs.unraid.net/legacy/FAQ/Configuration_Tutorial"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Configuration_Tutorial | Unraid Docs"><meta data-rh="true" name="description" content="\"><meta data-rh="true" property="og:description" content="\"><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://docs.unraid.net/legacy/FAQ/Configuration_Tutorial"><link data-rh="true" rel="alternate" href="https://docs.unraid.net/legacy/FAQ/Configuration_Tutorial" hreflang="en"><link data-rh="true" rel="alternate" href="https://docs.unraid.net/zh/legacy/FAQ/Configuration_Tutorial" hreflang="zh"><link data-rh="true" rel="alternate" href="https://docs.unraid.net/legacy/FAQ/Configuration_Tutorial" hreflang="x-default"><link rel="alternate" type="application/rss+xml" href="/blog/rss.xml" title="Unraid Docs RSS Feed">
 <link rel="alternate" type="application/atom+xml" href="/blog/atom.xml" title="Unraid Docs Atom Feed"><link rel="stylesheet" href="/assets/css/styles.bf18739c.css">
-<link rel="preload" href="/assets/js/runtime~main.1f02846a.js" as="script">
+<link rel="preload" href="/assets/js/runtime~main.c686335a.js" as="script">
 <link rel="preload" href="/assets/js/main.66ea8b2f.js" as="script">
 </head>
 <body class="navigation-with-keyboard" data-theme="light">
@@ -25,10 +25,10 @@ below the header.</em></p><hr><p>\
 \
 \</p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="introduction">Introduction<a href="#introduction" class="hash-link" aria-label="Direct link to Introduction" title="Direct link to Introduction">​</a></h2><p>This guide is intended to get you from a completed and working flash
 drive to a usable array.</p><p><code>Note: written for version 4.5.6</code>\
-<code>      valid for version 4.6</code>\
-<code>      valid for version 4.7</code></p><p><code>Note: These instructions assume the use of a Windows computer,</code>\
-<code>      but if you don&#x27;t have access to one, the instructions are </code>\
-<code>      basically the same for Linux or Unix-based operating systems.</code></p><p>The following assumptions are made:</p><ul><li>You have \&#x27;installed\&#x27; unRAID to your flash drive. If you have not,
+<code>valid for version 4.6</code>\
+<code>valid for version 4.7</code></p><p><code>Note: These instructions assume the use of a Windows computer,</code>\
+<code>but if you don&#x27;t have access to one, the instructions are</code>\
+<code>basically the same for Linux or Unix-based operating systems.</code></p><p>The following assumptions are made:</p><ul><li>You have \&#x27;installed\&#x27; unRAID to your flash drive. If you have not,
 please see the <a href="http://www.lime-technology.com/support/unraid-server-installation" target="_blank" rel="noopener noreferrer">Official installation
 guide</a>
 and do so now.</li><li>You are familiar with (or will become familiar with) <a title="wikilink" href="/legacy/FAQ/Terminal_Access">using terminal
@@ -37,22 +37,22 @@ console</a>.</li><li>You know what a command prompt is and how to access it.</li
 You don\&#x27;t need to be a network administrator, but if you don\&#x27;t
 know what an IP address is you should spend some time on google!</li></ul><p>If you are unclear about any of those, read the linked articles/guides,
 perform your own research, and ask questions in the
-<a href="http://lime-technology.com/forum/index.php" target="_blank" rel="noopener noreferrer">Forums</a>.</p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="pre_boot">Pre Boot<a href="#pre_boot" class="hash-link" aria-label="Direct link to Pre Boot" title="Direct link to Pre Boot">​</a></h2><p><code>Note: If you are in a hurry you may skip copying the </code><em><code>preclear_disk.sh</code></em>\
-<code>      and the </code><em><code>unmenu_install</code></em><code> scripts to your flash drive.  The preclear</code>\
-<code>      script is used to test your disks and prepare them for the unRAID</code>\
-<code>      environment.  The merits of preclearing are discussed in this </code>\
-<code>      </code><a href="http://lime-technology.com/forum/index.php?topic=2817" target="_blank" rel="noopener noreferrer"><code>forum post</code></a><code>.</code>\
+<a href="http://lime-technology.com/forum/index.php" target="_blank" rel="noopener noreferrer">Forums</a>.</p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="pre_boot">Pre Boot<a href="#pre_boot" class="hash-link" aria-label="Direct link to Pre Boot" title="Direct link to Pre Boot">​</a></h2><p><code>Note: If you are in a hurry you may skip copying the</code><em><code>preclear_disk.sh</code></em>\
+<code>and the</code><em><code>unmenu_install</code></em><code>scripts to your flash drive.  The preclear</code>\
+<code>script is used to test your disks and prepare them for the unRAID</code>\
+<code>environment.  The merits of preclearing are discussed in this</code>\
+`<code>[</code>forum post<code>](http://lime-technology.com/forum/index.php?topic=2817)</code>.<code>\
 \
-<code>      The </code><em><code>unmenu_install</code></em><code> script is used to install </code><a title="wikilink" href="/legacy/FAQ/UnRAID_Add_Ons#UnMENU"><code>UnMENU</code></a><code> which</code>\
-<code>      will allow the installation of Screen.  Installing screen will allow</code>\
-<code>      you to start a process (such as a preclear) in a telnet session, then</code>\
-<code>      disconnect the telnet session and allow the process to continue.  If</code>\
-<code>      you do not mind keeping a telnet session open for potentially days or</code>\
-<code>      you run commands directly from the console, skipping </code><a title="wikilink" href="/legacy/FAQ/UnRAID_Add_Ons#UnMENU"><code>UnMENU</code></a><code> and Screen</code>\
-<code>      is OK.</code>\
+</code>The<code>*</code>unmenu_install<code>*</code>script is used to install<code>[</code>UnMENU<code>](UnRAID_Add_Ons#UnMENU &quot;wikilink&quot;)</code>which<code>\
+</code>will allow the installation of Screen.  Installing screen will allow<code>\
+</code>you to start a process (such as a preclear) in a telnet session, then<code>\
+</code>disconnect the telnet session and allow the process to continue.  If<code>\
+</code>you do not mind keeping a telnet session open for potentially days or<code>\
+</code>you run commands directly from the console, skipping<code>[</code>UnMENU<code>](UnRAID_Add_Ons#UnMENU &quot;wikilink&quot;)</code>and Screen<code>\
+</code>is OK.<code>\
 \
-<code>      Installing UnMENU will also allow configuration of the environment to</code>\
-<code>      allow the preclear script to send email notifications of its status.</code></p><p>Before booting your unRAID system you need to copy a few files to your
+</code>Installing UnMENU will also allow configuration of the environment to<code>\
+</code>allow the preclear script to send email notifications of its status.`</p><p>Before booting your unRAID system you need to copy a few files to your
 flash drive. The <em>preclear_disk.sh</em> script will enable you to prep your
 disks for the array and the <em>unmenu_install</em> script will install
 <a title="wikilink" href="/legacy/FAQ/UnRAID_Add_Ons#UnMENU">UnMENU</a>.</p><p><strong>Step 1</strong> From a non unRAID system download the <em>preclear_disk.sh</em>
@@ -110,10 +110,10 @@ if you are unsure what to use for your environment. This may be left
 blank, but that will prevent the UnRAID server from passing traffic
 outside the subnet in which it resides</li></ul><p>To enable these settings save the file and restart the UnRAID server. If
 you used vi or mcedit to edit the file, after exiting the editor execute</p><p><code>shutdown -r now</code></p><p>to reboot the system.</p><p>If you edited the file on another computer. Remove the flash drive and
-re-attach it to the unRAID server and power it back up.</p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="verifying_sata_hard_drives_are_detected">Verifying SATA Hard Drives are Detected<a href="#verifying_sata_hard_drives_are_detected" class="hash-link" aria-label="Direct link to Verifying SATA Hard Drives are Detected" title="Direct link to Verifying SATA Hard Drives are Detected">​</a></h3><p><code>Note: This section assumes all SATA hard drives!  </code>\
-<code> </code><strong><code>If you are using older hardware,</code>\
-<code>or have the disk controller configured in a legacy compatible mode (emulating an IDE disk controller)</code>\
-<code>these messages will not exist.</code></strong></p><p>To verify that your SATA hard drives are detected as SATA devices, at
+re-attach it to the unRAID server and power it back up.</p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="verifying_sata_hard_drives_are_detected">Verifying SATA Hard Drives are Detected<a href="#verifying_sata_hard_drives_are_detected" class="hash-link" aria-label="Direct link to Verifying SATA Hard Drives are Detected" title="Direct link to Verifying SATA Hard Drives are Detected">​</a></h3><p><code>Note: This section assumes all SATA hard drives!</code>\
+`<code>**</code>If you are using older hardware,<code>\
+</code>or have the disk controller configured in a legacy compatible mode (emulating an IDE disk controller)<code>\
+</code>these messages will not exist.`**</p><p>To verify that your SATA hard drives are detected as SATA devices, at
 the prompt type</p><p><code>dmesg|grep SATA|grep link</code></p><p>You should get a listing of each SATA controller, its link status, and
 its speed. The output will look similar to</p><p><code>ata1: SATA link up 3.0 Gbps (SStatus 123 SControl 300)</code>\
 <code>ata2: SATA link up 3.0 Gbps (SStatus 123 SControl 300)</code>\
@@ -209,17 +209,17 @@ below.</p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="install_unmenu">Ins
 page for unRAID that provides a number of user-requested features, and
 is relatively easy to extend. Installing it now gives you access to
 screen and email notifications, both of which are useful for preclearing
-hard drives.</p><p><code>Note: This step assumes you have the </code><em><code>unmenu_install</code></em><code> script on</code>\
-<code>      your flash drive.  See the </code><a title="wikilink" href="/legacy/FAQ/Configuration_Tutorial#Pre_Boot"><code>Pre Boot</code></a><code> section for details</code>\
-<code>      if you do not.</code></p><p><code>Note: For this step your server must have access to the internet to</code>\
-<code>      download some files.  It is </code><strong><code>NOT</code></strong><code> recommended that you connect</code>\
-<code>      your UnRAID server directly to the internet as it is not secure.  </code>\
+hard drives.</p><p><code>Note: This step assumes you have the</code><em><code>unmenu_install</code></em><code>script on</code>\
+<code>your flash drive.  See the</code><a title="wikilink" href="/legacy/FAQ/Configuration_Tutorial#Pre_Boot"><code>Pre Boot</code></a><code>section for details</code>\
+<code>if you do not.</code></p><p><code>Note: For this step your server must have access to the internet to</code>\
+<code>download some files.  It is</code><strong><code>NOT</code></strong><code>recommended that you connect</code>\
+<code>your UnRAID server directly to the internet as it is not secure.</code>\
 \
-<code>      You should connect your unRAID server to a router that in turn is</code>\
-<code>      connected to the internet.  To be able to download files you must</code>\
-<code>      have both a DNS server and a Gateway defined on the unRAID</code>\
-<code>      web-management settings page.  Typically both will be set to the</code>\
-<code>      local IP address of your router.</code></p><p><strong>Step 1</strong> Log into your UnRAID server as root via a
+<code>You should connect your unRAID server to a router that in turn is</code>\
+<code>connected to the internet.  To be able to download files you must</code>\
+<code>have both a DNS server and a Gateway defined on the unRAID</code>\
+<code>web-management settings page.  Typically both will be set to the</code>\
+<code>local IP address of your router.</code></p><p><strong>Step 1</strong> Log into your UnRAID server as root via a
 <a title="wikilink" href="/legacy/FAQ/Telnet">Telnet</a> connection or at the console.</p><p><strong>Step 2</strong> At the prompt type</p><p><code>cd /boot/unmenu</code></p><p><strong>Step 3</strong> At the prompt type</p><p><code>./unmenu_install  -i -d /boot/unmenu</code></p><p>The script will download the files needed and place them in the
 appropriate location.\
 \
@@ -257,7 +257,7 @@ can be convenient to do this when you have just downloaded the
 packages to avoid the need for a server reboot. It is also the way
 to go if you do not want the screen package to always be
 automatically loaded and want to do it yourself manually as
-required. The manual install is done by using a command of the form:</li></ul><p><code>installpkg </code><em><code>name_of_package_file</code></em></p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="install_screen_on_unraid_v6._as_a_plugin">Install Screen on unRAID V6. + as a plugin<a href="#install_screen_on_unraid_v6._as_a_plugin" class="hash-link" aria-label="Direct link to Install Screen on unRAID V6. + as a plugin" title="Direct link to Install Screen on unRAID V6. + as a plugin">​</a></h2><p>Screen is now available as a standard plugin on the forum
+required. The manual install is done by using a command of the form:</li></ul><p><code>installpkg</code><em><code>name_of_package_file</code></em></p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="install_screen_on_unraid_v6._as_a_plugin">Install Screen on unRAID V6. + as a plugin<a href="#install_screen_on_unraid_v6._as_a_plugin" class="hash-link" aria-label="Direct link to Install Screen on unRAID V6. + as a plugin" title="Direct link to Install Screen on unRAID V6. + as a plugin">​</a></h2><p>Screen is now available as a standard plugin on the forum
 <a href="http://lime-technology.com/forum/index.php?topic=37541.0" target="_blank" rel="noopener noreferrer">HERE</a></p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="preclear_hard_drives">Preclear Hard Drives<a href="#preclear_hard_drives" class="hash-link" aria-label="Direct link to Preclear Hard Drives" title="Direct link to Preclear Hard Drives">​</a></h2><p>Preclearing is a process for carrying out confidence checks on drives,
 and speeding up adding new drives to an existing parity protected array.</p><p>If you intend to preclear a drive then <a title="wikilink" href="/legacy/FAQ/Add_One_or_More_New_Data_Drives">install your new
 drive</a>(s), but do not assign
@@ -307,15 +307,15 @@ the /boot dir)</p><p><code>preclear_disk.sh -l</code></p><p>The -l is a L as in
 to be clearing.</p><p><strong>Step 5</strong> To begin the preclear on a drive, at the prompt type</p><p><code>./preclear_disk.sh -A /dev/sdX</code></p><p>If you wish to run multiple cycles of the preclear script on the drive
 to exercise it,type</p><p><code>./preclear_disk.sh -A -c 3 /dev/sdX</code></p><p>where sdX is the device mapping of the drive you want to preclear, and 3
 is the number of cycles you want to run.</p><p><code>Note: If you have only SATA drives and see a /dev/hdX device it</code>\
-<code>      indicates you have set your motherboard BIOS to have it</code>\
-<code>      emulate an older IDE drive to the operating system.  This</code>\
-<code>      is NOT desired for SATA drives since they will not be</code>\
-<code>      able to use any of their more advanced features.  You</code>\
-<code>      instead want ACHI mode, not legacy mode.</code></p><p><code>Note: If you are pre-clearing a WD EARS drive that has had a jumper installed to electrically</code>\
-<code>      add one to a sector when accessed, then use the &quot;-a&quot; option to the preclear script </code>\
-<code>      rather than the &quot;-A&quot; option.   This is ONLY for that one specific make/model drive </code>\
-<code>      and ONLY IF it has a jumper added.  </code>\
-<code>      For ALL other drives, or the WD EARS without a jumper, use the &quot;-A&quot; option.</code></p><p>If you are pre-clearing multiple drives it is recommended you also use
+<code>indicates you have set your motherboard BIOS to have it</code>\
+<code>emulate an older IDE drive to the operating system.  This</code>\
+<code>is NOT desired for SATA drives since they will not be</code>\
+<code>able to use any of their more advanced features.  You</code>\
+<code>instead want ACHI mode, not legacy mode.</code></p><p><code>Note: If you are pre-clearing a WD EARS drive that has had a jumper installed to electrically</code>\
+<code>add one to a sector when accessed, then use the &quot;-a&quot; option to the preclear script</code>\
+<code>rather than the &quot;-A&quot; option.   This is ONLY for that one specific make/model drive</code>\
+<code>and ONLY IF it has a jumper added.</code>\
+<code>For ALL other drives, or the WD EARS without a jumper, use the &quot;-A&quot; option.</code></p><p>If you are pre-clearing multiple drives it is recommended you also use
 the optional \&quot;-r\&quot; \&quot;-w\&quot; and \&quot;-b\&quot; options. These set the size and
 number of blocks of data read and written to the disks during
 processing. Although not needed when clearing a single drive, If you do
@@ -325,28 +325,28 @@ size of the written blocks, and \&quot;-b NNNNN\&quot; sets the number of blocks
 read in each operation.</p><p>If you installed <a title="wikilink" href="/legacy/FAQ/Configuration_Tutorial#Install_and_Configure_Mail_and_SSMTP">mail and
 ssmtp</a>
 and wish to have email notifications of the process, instead of the
-above type</p><p><code>./preclear_disk.sh -A -M 4 /dev/sdX </code><em><code>(&quot;root&quot; email address)</code></em><code> </code><strong><code>or</code></strong>\
-<code>./preclear_disk.sh -A -m your@emailaddress.com /dev/sdX </code><em><code>(optional email address)</code></em></p><p>Put your email address and sdX is the device mapping of the drive you
+above type</p><p><code>./preclear_disk.sh -A -M 4 /dev/sdX</code><em><code>(&quot;root&quot; email address)</code></em>`<code>**</code>or<code>**\
+</code>./preclear_disk.sh -A -m <a href="mailto:your@emailaddress.com" target="_blank" rel="noopener noreferrer">your@emailaddress.com</a> /dev/sdX<code>*</code>(optional email address)`*</p><p>Put your email address and sdX is the device mapping of the drive you
 want to preclear. If this is an IDE device it will be hdX.</p><p><code>Note: if you do not supply either a &quot;-a&quot; or &quot;-A&quot; option, the preclear_disk.sh script will use the setting</code>\
 <code>you&#x27;ve elected in the unRAID &quot;settings&quot; screen as its default partition type.   It is recommended you set this to MBR-4k-aligned.</code>\
-<code> -a will override the default and create an MBR-un-aligned partition starting on sector 63. </code>\
-<code> -A will override the default and create an MBR-4k-aligned partition starting on sector 64.</code>\
-<code> Neither option is recognized for disks &gt; 2.2TB.  They will always be 4k-aligned using a GPT partition.</code>\
-<code> If the -a or -A option is given on a drive over 2.2TB, it is silently ignored and no harm is done.</code>\
-<code> Disks over 2.2TB will also have a &quot;protective&quot; partition starting on sector 1 added to the MBR</code>\
-<code> to be compatible older programs and utilities and show they are entirely allocated. </code></p><p>This will present you with a screen similar to</p><p><code> Pre-Clear unRAID Disk</code>\
+<code>-a will override the default and create an MBR-un-aligned partition starting on sector 63.</code>\
+<code>-A will override the default and create an MBR-4k-aligned partition starting on sector 64.</code>\
+<code>Neither option is recognized for disks &gt; 2.2TB.  They will always be 4k-aligned using a GPT partition.</code>\
+<code>If the -a or -A option is given on a drive over 2.2TB, it is silently ignored and no harm is done.</code>\
+<code>Disks over 2.2TB will also have a &quot;protective&quot; partition starting on sector 1 added to the MBR</code>\
+<code>to be compatible older programs and utilities and show they are entirely allocated.</code></p><p>This will present you with a screen similar to</p><p><code>Pre-Clear unRAID Disk</code>\
 <code>########################################################################</code>\
 <code>Device Model:     WDC WD20EARS-00J2GB0</code>\
 <code>Serial Number:    WD-WCAYYXXXXXXX</code>\
 <code>Firmware Version: 80.00A80</code>\
-<code>User Capacity:    2,000,398,934,016 bytes  </code>\
+<code>User Capacity:    2,000,398,934,016 bytes</code>\
 \
 <code>Disk /dev/sde: 2000.3 GB, 2000398934016 bytes</code>\
 <code>255 heads, 63 sectors/track, 243201 cylinders, total 3907029168 sectors</code>\
 <code>Units = sectors of 1 * 512 = 512 bytes</code>\
 <code>Disk identifier: 0x00000000</code>\
 \
-<code>   Device Boot      Start         End      Blocks   Id  System</code>\
+<code>Device Boot      Start         End      Blocks   Id  System</code>\
 <code>/dev/sde1              63  3907029167  1953514552+   0  Empty</code>\
 <code>Partition 1 does not end on cylinder boundary.</code>\
 <code>########################################################################</code>\
@@ -407,28 +407,28 @@ use from the console. It is possible to run a preclear in a telnet
 instance, however it is not recommended because if your session is
 interrupted, the preclear process will be terminated. If you wish to
 take that risk, you can substitute each Vterm with a new telnet session.</p><p><strong>Step 1</strong> Log in to your UnRAID server as root at the console</p><p><strong>Step 2</strong> To navigate to the preclear script, at the prompt type</p><p><code>cd /boot</code></p><p><code>Note: If you are preclearing any AF drives, be sure to use the -A option</code>\
-<code>      when you invoke the preclear script.  i.e replace</code>\
-<code>      </code><em><code>./preclear_script.sh /dev/sdX</code></em><code> with </code><em><code>./preclear_script.sh </code><strong><code>-A</code></strong><code> /dev/sdX</code></em></p><p><code>Note: Drives greater than 2.2TB in size automatically use a GPT partition that </code>\
-<code>      is always aligned on a 4k boundary.  The &quot;-a&quot; and &quot;-A&quot; options on the </code>\
-<code>      preclear script are ignored on those drives &gt; 2.2TB as those options </code>\
-<code>      only apply to drives &lt;= 2.2TB.</code></p><p><strong>Step 3</strong> To begin the preclear on the 1st drive, at the prompt type</p><p><code>./preclear_disk.sh /dev/sdX</code></p><p>where sdX is the device mapping of the drive you want to preclear. If
+<code>when you invoke the preclear script.  i.e replace</code>\
+`<code>*</code>./preclear_script.sh /dev/sdX<code>*</code>with<code>*</code>./preclear_script.sh<code>**</code>-A<code>**</code>/dev/sdX`*</p><p><code>Note: Drives greater than 2.2TB in size automatically use a GPT partition that</code>\
+<code>is always aligned on a 4k boundary.  The &quot;-a&quot; and &quot;-A&quot; options on the</code>\
+<code>preclear script are ignored on those drives &gt; 2.2TB as those options</code>\
+<code>only apply to drives &lt;= 2.2TB.</code></p><p><strong>Step 3</strong> To begin the preclear on the 1st drive, at the prompt type</p><p><code>./preclear_disk.sh /dev/sdX</code></p><p>where sdX is the device mapping of the drive you want to preclear. If
 this is an IDE device it will be hdX.</p><p>If you installed <a title="wikilink" href="/legacy/FAQ/Configuration_Tutorial#Install_and_Configure_Mail_and_SSMTP">mail and
 ssmtp</a>
 and wish to have email notifications of the process, instead of the
 above type</p><p><code>./preclear_disk.sh -m your@emailaddress.com -M4 /dev/sdX</code></p><p>Put your email address in and substitute for sdX the device mapping of
-the drive you want to preclear. If this is an IDE device it will be hdX.</p><p>This will present you with a screen similar to</p><p><code> Pre-Clear unRAID Disk</code>\
+the drive you want to preclear. If this is an IDE device it will be hdX.</p><p>This will present you with a screen similar to</p><p><code>Pre-Clear unRAID Disk</code>\
 <code>########################################################################</code>\
 <code>Device Model:     WDC WD20EARS-00J2GB0</code>\
 <code>Serial Number:    WD-WCAYYXXXXXXX</code>\
 <code>Firmware Version: 80.00A80</code>\
-<code>User Capacity:    2,000,398,934,016 bytes  </code>\
+<code>User Capacity:    2,000,398,934,016 bytes</code>\
 \
 <code>Disk /dev/sde: 2000.3 GB, 2000398934016 bytes</code>\
 <code>255 heads, 63 sectors/track, 243201 cylinders, total 3907029168 sectors</code>\
 <code>Units = sectors of 1 * 512 = 512 bytes</code>\
 <code>Disk identifier: 0x00000000</code>\
 \
-<code>   Device Boot      Start         End      Blocks   Id  System</code>\
+<code>Device Boot      Start         End      Blocks   Id  System</code>\
 <code>/dev/sde1              63  3907029167  1953514552+   0  Empty</code>\
 <code>Partition 1 does not end on cylinder boundary.</code>\
 <code>########################################################################</code>\
@@ -471,26 +471,26 @@ every sector and will only take the array offline long enough to perform
 a format which only takes a minute or two.</p><p><strong><code>&lt;font color=red&gt;</code>{=html}Disks that do not have unRAID compatible
 partitions will be re-partitioned immediately upon assignment to the
 array. (In other words, do not assign disks from other OS with data you
-wish to retain)<code>&lt;/font&gt;</code>{=html}</strong></p><p><code>Note: The parity disk </code><strong><code>must</code></strong><code> be as large or larger than the largest data drive.</code>\
-<code>      Remember to leave one of the largest drives free to use as a parity drive.</code></p><p><strong>Step 1</strong> On another computer (not your unRAID system) open a web
+wish to retain)<code>&lt;/font&gt;</code>{=html}</strong></p><p><code>Note: The parity disk</code><strong><code>must</code></strong><code>be as large or larger than the largest data drive.</code>\
+<code>Remember to leave one of the largest drives free to use as a parity drive.</code></p><p><strong>Step 1</strong> On another computer (not your unRAID system) open a web
 browser and navigate to the <a title="wikilink" href="/legacy/FAQ/Un-Official_UnRAID_Manual#Connecting_To_the_Server_Management_Utility">Server Management
 Utility</a>.
 Then click on <em>Devices</em>.</p><p><strong>Step 2</strong> Click the drop down box next to <em>disk1 device</em> and select a
 disk to assign to this position.</p><p><strong>Step 3</strong> Repeat this process for each disk that you want to add to the
 array as a data storage disk and add them under <em>disk2 device</em>, <em>disk3
 device</em>, etc.</p><p><code>Note: At this point you have to choose whether to add your parity drive now or later.</code>\
-<code>      If you wait to add a parity drive later, copying initial data to the array</code>\
-<code>      will be much faster, but the data will not be protected from a single disk</code>\
-<code>      failure.  If you do add a parity drive, you will be protected from a single</code>\
-<code>      disk failure from this point forward, but writes to the array will be much</code>\
-<code>      slower due to parity calculations. If you add a parity drive now an initial</code>\
-<code>      parity calculation will begin when you start the array.</code></p><p><strong>Step 4</strong> To add a parity drive, click the drop down box next to
+<code>If you wait to add a parity drive later, copying initial data to the array</code>\
+<code>will be much faster, but the data will not be protected from a single disk</code>\
+<code>failure.  If you do add a parity drive, you will be protected from a single</code>\
+<code>disk failure from this point forward, but writes to the array will be much</code>\
+<code>slower due to parity calculations. If you add a parity drive now an initial</code>\
+<code>parity calculation will begin when you start the array.</code></p><p><strong>Step 4</strong> To add a parity drive, click the drop down box next to
 <em>parity device</em> and select a disk to be used for parity. To assign a
 parity drive later, leave the <em>parity device</em> unassigned.</p><p><code>Note: If you intend to work with shares, you may first want to enable them prior</code>\
-<code>      to starting the array since enabling shares requires the array to be</code>\
-<code>      in an offline state.  Otherwise, you will either have to stop the array (and</code>\
-<code>      potentially a parity rebuild) to enable shares.  Note that once user shares are</code>\
-<code>      enabled, you can create shares while the array is online.</code></p><p><strong>Step 5</strong> After all drives have been added to the array click <em>Main</em> on
+<code>to starting the array since enabling shares requires the array to be</code>\
+<code>in an offline state.  Otherwise, you will either have to stop the array (and</code>\
+<code>potentially a parity rebuild) to enable shares.  Note that once user shares are</code>\
+<code>enabled, you can create shares while the array is online.</code></p><p><strong>Step 5</strong> After all drives have been added to the array click <em>Main</em> on
 the navigation bar at the top of the page, then click <em>Start</em> to start
 the array.</p><p>When initially adding a parity drive to an array, a parity sync must be
 performed. For an array containing a large amount of data, this can be a
@@ -573,9 +573,9 @@ Places) and data can be read and written to the share.</li></ul></li><li>Export 
 My Network Places) and data can be read, but not written to the
 share.</li></ul></li><li>Export read/write, hidden<ul><li>The share will <em>not</em> be visible on the network (will not appear
 My Network Places) and data can be read and written to the
-share.</li></ul></li></ul><p><code>Note: Setting shares to hidden is </code><strong><code>NOT</code></strong><code> a security measure, only a privacy measure.</code>\
-<code>      It prevents Nosy Nellies from noticing your data, but does not protect it in any</code>\
-<code>      way.</code></p><p>Shares will be accessed by concatenating the server name with the share
+share.</li></ul></li></ul><p><code>Note: Setting shares to hidden is</code><strong><code>NOT</code></strong><code>a security measure, only a privacy measure.</code>\
+<code>It prevents Nosy Nellies from noticing your data, but does not protect it in any</code>\
+<code>way.</code></p><p>Shares will be accessed by concatenating the server name with the share
 name. A share called <em>foo</em> on the server <em>Tower</em> would be accessed at</p><p><code>\\Tower\foo</code></p><p>regardless if foo is exported as hidden or not. unRAID is capable of
 providing
 <a href="http://en.wikipedia.org/wiki/Network_File_System_%28protocol%29" target="_blank" rel="noopener noreferrer">NFS</a>
@@ -587,7 +587,7 @@ the files and folders stored in <em>foo</em> can be spread across multiple
 disks yet all be accessible at a single share point <em>ie
 <!-- -->\<!-- -->\<!-- -->Tower<!-- -->\<!-- -->\<!-- -->foo</em>. While this is great from a usability standpoint,
 putting some thought into the User share settings can help avoid a few
-pitfalls later.</p><p><code>Note: For now, linking explanations to the Un-Official Manual.  This section needs a re-write! </code></p><p>Set the following options as appropriate for the share and click
+pitfalls later.</p><p><code>Note: For now, linking explanations to the Un-Official Manual.  This section needs a re-write!</code></p><p>Set the following options as appropriate for the share and click
 <em>Apply</em>.</p><ul><li>Share name<ul><li>This is the name of the share.</li><li>It must be unique to the server.</li><li>Valid characters are a-z, A-Z, 0-9, - (dash), and . (dot)</li></ul></li><li>Comments<ul><li>(Optional) Comments will appear in the comment field of a share
 in <em>My Network Places</em>.</li></ul></li><li><a title="wikilink" href="/legacy/FAQ/Un-Official_UnRAID_Manual#Allocation_method">Allocation
 method</a><ul><li>Used to determine where to store data as it is copied to the
@@ -601,8 +601,8 @@ disks are considered for use in the array.</li></ul></li><li><a title="wikilink"
 disk(s)</a><ul><li>A list of disks to which data for this share will not be copied.</li></ul></li><li>Export (SMB)<ul><li>Sets how the share appears on the network and how it may be
 accessed.</li></ul></li></ul><p>Once the share is created, there will be a new section below where you
 can create the next share.</p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="copy_files_to_the_array">Copy Files to the Array<a href="#copy_files_to_the_array" class="hash-link" aria-label="Direct link to Copy Files to the Array" title="Direct link to Copy Files to the Array">​</a></h2><p><code>Note: If parity is already enabled the bottleneck will be parity writes;</code>\
-<code>      pick whichever method is easiest for you </code><em><code>without</code></em><code> considering</code>\
-<code>      the speed.</code></p><p>There are several methods of copying files to a new array. The simplest
+<code>pick whichever method is easiest for you</code><em><code>without</code></em><code>considering</code>\
+<code>the speed.</code></p><p>There are several methods of copying files to a new array. The simplest
 method is to browse to a share on the network from an existing machine
 and copy data across. While this is simple it can be slow, even over a
 gigabit network. If you have an available hard drive (IDE, SATA, eSATA),
@@ -620,10 +620,10 @@ share where the files are to be copied.</p><p><strong>Step 3</strong> Create dir
 then drag and drop them into the <em>My Network Places</em> Window. This will
 begin the copy.</p><p><strong>Step 5</strong> Once the copy is complete, the files are now stored on the
 array.</p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="copying_files_from_an_internal_or_external_hard_drive">Copying Files From an Internal or External Hard Drive<a href="#copying_files_from_an_internal_or_external_hard_drive" class="hash-link" aria-label="Direct link to Copying Files From an Internal or External Hard Drive" title="Direct link to Copying Files From an Internal or External Hard Drive">​</a></h3><p><code>Note: The NTFS driver included with the UnRAID distribution does not support</code>\
-<code>      Unicode characters correctly and using this method </code><strong><code>WILL</code></strong><code> corrupt</code>\
-<code>      filenames if they contain Unicode characters!  If you have any files</code>\
-<code>      containing Unicode characters, it is recommended that you copy those</code>\
-<code>      files across the network.</code></p><p><strong>Step 1</strong> Copy files from an existing system to an internal or external
+<code>Unicode characters correctly and using this method</code><strong><code>WILL</code></strong><code>corrupt</code>\
+<code>filenames if they contain Unicode characters!  If you have any files</code>\
+<code>containing Unicode characters, it is recommended that you copy those</code>\
+<code>files across the network.</code></p><p><strong>Step 1</strong> Copy files from an existing system to an internal or external
 hard drive.</p><p><strong>Step 2</strong> Install the hard drive in the UnRAID server, power on the
 system, log into the web GUI and spin up the drives. Then run telnet and
 log in as root. For external hard drives it is safe to just plug them
@@ -634,8 +634,8 @@ type</p><p><code>mkdir /mnt/imported_files</code></p><p><strong>Step 4</strong>
 <code>/dev/sdh1               1       19457   156288321    c  W95 FAT32 (LBA)</code></p><p>This shows 2 NTFS file systems: one at <em>/dev/sdc1</em> and another at
 <em>/dev/sdd1</em>; and 1 FAT32 file system at <em>/dev/sdh1</em>. Note the mapping of
 the file system where the files reside.</p><p><strong>Step 5</strong> Mount the file system in the mount point created in Step 3:</p><p>For NTFS file systems type</p><p><code>mount -r -t ntfs /dev/sdX /mnt/imported_files</code></p><p>where /dev/sdX is the device mapping from Step 4.</p><p>For FAT or FAT32 file systems type</p><p><code>mount -r -t vfat /dev/sdX /mnt/imported_files</code></p><p>where /dev/sdX is the device mapping from Step 4.</p><p><strong>Step 6</strong> To copy files using Midnight Commander, at the prompt type</p><p><code>mc</code></p><p><code>Note: If you are comfortable navigating the filesystem and using the cp</code>\
-<code>      or rsync command that is an acceptable alternative to Midnight</code>\
-<code>      Commander.</code></p><p><strong>Step 7</strong> Use the arrow keys to move the highlighted bar to</p><p><code>/..</code></p><p>in the left column and press enter to navigate up one level in the file
+<code>or rsync command that is an acceptable alternative to Midnight</code>\
+<code>Commander.</code></p><p><strong>Step 7</strong> Use the arrow keys to move the highlighted bar to</p><p><code>/..</code></p><p>in the left column and press enter to navigate up one level in the file
 system.</p><p><strong>Step 8</strong> Use the arrow keys to navigate to the</p><p><code>/mnt</code></p><p>directory in the left column and press enter to open it.</p><p><strong>Step 9</strong> Use the arrow keys to navigate to the</p><p><code>/imported_files</code></p><p>directory and press enter to open it.</p><p><strong>Step 10</strong> Continue using the arrow keys and enter to navigate to the
 set of files you wish to copy to the array in the left column.</p><p><strong>Step 11</strong> Press <em>tab</em> to move to the right column, then use the arrow
 keys and enter to navigate to</p><p><code>/mnt/user/</code></p><p>directory. You will probably need to start by going up one level in the
@@ -667,8 +667,8 @@ assign a new user with password to the system. Enter a username in the
 also leave the password blank. This is useful for a guest user; they can
 be allowed read only access to some shares, no access to others, and
 denied write access to the entire array.</p><p><code>Note: If the username and password match the user&#x27;s Windows username and</code>\
-<code>      password, they will not be prompted for a password when they connect</code>\
-<code>      to a share.</code></p><p><strong>Step 3</strong> Enter a password in the <em>Password</em> and <em>Retype password</em>
+<code>password, they will not be prompted for a password when they connect</code>\
+<code>to a share.</code></p><p><strong>Step 3</strong> Enter a password in the <em>Password</em> and <em>Retype password</em>
 boxes, then press apply.</p><p><strong>Step 4</strong> Click <em>Shares</em> to assign share permissions.</p><p>See the <a title="wikilink" href="/legacy/FAQ/Un-Official_UnRAID_Manual#Users_2">Un-Official UnRAID
 Manual</a> for more
 information including removing users and changing passwords.</p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="share_security_settings">Share Security Settings<a href="#share_security_settings" class="hash-link" aria-label="Direct link to Share Security Settings" title="Direct link to Share Security Settings">​</a></h3><p>The applicable settings for share security are <em>Exceptions</em>, <em>Valid
@@ -689,7 +689,7 @@ access.</li></ul></li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="ex
 add or delete them. Mom and dad should have full access to the Movies
 share so they can add new movies and delete old ones.</p><p><code>Export (SMB)  = read only</code>\
 <code>Exceptions    = mom,dad</code>\
-<code>Valid users   = </code>\
+<code>Valid users   =</code>\
 <code>Invalid users =</code></p><p>For Finances, guests and kids should not have any access and because Mom
 handles the finances dad should only get read access.</p><p><code>Export (SMB)  = read only</code>\
 <code>Exceptions    = mom</code>\
@@ -738,7 +738,7 @@ your UnRAID server if you have not done so already. This will add a
 layer of security to your server and prevent anyone from logging into
 the web interface and nosing around or worse.</p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="more_sources_of_information">More Sources of Information<a href="#more_sources_of_information" class="hash-link" aria-label="Direct link to More Sources of Information" title="Direct link to More Sources of Information">​</a></h3><ul><li><a title="wikilink" href="/legacy/FAQ/UnRAID_Manual">Official UnRAID Manual</a></li><li><a title="wikilink" href="/legacy/FAQ/Un-Official_UnRAID_Manual">Un-Official UnRAID Manual</a></li><li><a title="wikilink" href="/legacy/FAQ/UnRAID_Wiki">UnRAID Wiki</a></li><li><a title="wikilink" href="/legacy/FAQ/Best_of_the_Forums">Best of the Forums</a></li><li><a title="wikilink" href="/legacy/FAQ/Troubleshooting">Troubleshooting Guide</a></li><li><a title="wikilink" href="/legacy/FAQ/UnRAID_Add_Ons">UnRAID Add Ons</a></li><li><a href="http://lime-technology.com/forum/index.php" target="_blank" rel="noopener noreferrer">unRAID forums</a></li></ul><p><a href="Category:_Getting_started" target="_blank" rel="noopener noreferrer" title="wikilink">Category: Getting started</a>
 <a href="Category:_How_To" target="_blank" rel="noopener noreferrer" title="wikilink">Category: How To</a></p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="theme-doc-footer-edit-meta-row row"><div class="col"><a href="https://github.com/unraid/docs/tree/main/docs/legacy/FAQ/Configuration_Tutorial.md" target="_blank" rel="noreferrer noopener" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_vwxv"></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/legacy/FAQ/Check_Harddrive_Speed"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Check_Harddrive_Speed</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/legacy/FAQ/Console"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Console</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#introduction" class="table-of-contents__link toc-highlight">Introduction</a></li><li><a href="#pre_boot" class="table-of-contents__link toc-highlight">Pre Boot</a></li><li><a href="#first_boot" class="table-of-contents__link toc-highlight">First Boot</a><ul><li><a href="#verifying_network_connectivity" class="table-of-contents__link toc-highlight">Verifying Network Connectivity</a></li><li><a href="#setting_a_static_ip_address" class="table-of-contents__link toc-highlight">Setting a static IP address</a></li><li><a href="#verifying_sata_hard_drives_are_detected" class="table-of-contents__link toc-highlight">Verifying SATA Hard Drives are Detected</a></li></ul></li><li><a href="#configuration_with_the_server_management_utility" class="table-of-contents__link toc-highlight">Configuration With the Server Management Utility</a><ul><li><a href="#identification" class="table-of-contents__link toc-highlight">Identification</a></li><li><a href="#network_settings" class="table-of-contents__link toc-highlight">Network Settings</a></li><li><a href="#date_and_time" class="table-of-contents__link toc-highlight">Date and time</a></li><li><a href="#disk_settings" class="table-of-contents__link toc-highlight">Disk Settings</a></li></ul></li><li><a href="#install_unmenu_for_screen_and_email_notifications" class="table-of-contents__link toc-highlight">Install UnMENU for Screen and Email Notifications</a><ul><li><a href="#install_unmenu" class="table-of-contents__link toc-highlight">Install UnMENU</a></li><li><a href="#install_screen" class="table-of-contents__link toc-highlight">Install Screen</a></li><li><a href="#configure_smtp_settings_unraid_v6" class="table-of-contents__link toc-highlight">Configure SMTP Settings (unRaid v6)</a></li></ul></li><li><a href="#install_screen_without_using_unmenu" class="table-of-contents__link toc-highlight">Install Screen without using UnMENU</a></li><li><a href="#install_screen_on_unraid_v6._as_a_plugin" class="table-of-contents__link toc-highlight">Install Screen on unRAID V6. + as a plugin</a></li><li><a href="#preclear_hard_drives" class="table-of-contents__link toc-highlight">Preclear Hard Drives</a><ul><li><a href="#preclearing_via_web_gui_with_unraid_v6" class="table-of-contents__link toc-highlight">Preclearing via Web GUI with unRAID v6</a></li><li><a href="#preclearing_with_screen" class="table-of-contents__link toc-highlight">Preclearing With Screen</a></li><li><a href="#preclearing_without_screen" class="table-of-contents__link toc-highlight">Preclearing Without Screen</a></li></ul></li><li><a href="#add_drives_to_the_array" class="table-of-contents__link toc-highlight">Add Drives to the Array</a><ul><li><a href="#adding_a_parity_drive_to_an_existing_array" class="table-of-contents__link toc-highlight">Adding a Parity Drive to an Existing Array</a></li></ul></li><li><a href="#create_user_shares" class="table-of-contents__link toc-highlight">Create User Shares</a><ul><li><a href="#enable_user_shares" class="table-of-contents__link toc-highlight">Enable User Shares</a></li><li><a href="#share_export_modes" class="table-of-contents__link toc-highlight">Share Export Modes</a></li><li><a href="#export_settings" class="table-of-contents__link toc-highlight">Export Settings</a></li><li><a href="#user_shares" class="table-of-contents__link toc-highlight">User shares</a></li></ul></li><li><a href="#copy_files_to_the_array" class="table-of-contents__link toc-highlight">Copy Files to the Array</a><ul><li><a href="#copying_files_across_the_network" class="table-of-contents__link toc-highlight">Copying Files Across the Network</a></li><li><a href="#copying_files_from_an_internal_or_external_hard_drive" class="table-of-contents__link toc-highlight">Copying Files From an Internal or External Hard Drive</a></li></ul></li><li><a href="#users_and_share_security" class="table-of-contents__link toc-highlight">Users and Share Security</a><ul><li><a href="#enable_user_level_share_security" class="table-of-contents__link toc-highlight">Enable User Level Share Security</a></li><li><a href="#add_users" class="table-of-contents__link toc-highlight">Add Users</a></li><li><a href="#share_security_settings" class="table-of-contents__link toc-highlight">Share Security Settings</a></li><li><a href="#examples" class="table-of-contents__link toc-highlight">Examples</a></li></ul></li><li><a href="#security" class="table-of-contents__link toc-highlight">Security</a><ul><li><a href="#setting_a_root_password" class="table-of-contents__link toc-highlight">Setting a root Password</a></li><li><a href="#use_proper_user_share_policies" class="table-of-contents__link toc-highlight">Use Proper User Share Policies</a></li><li><a href="#disable_flash_share" class="table-of-contents__link toc-highlight">Disable Flash Share</a></li><li><a href="#limit_external_access" class="table-of-contents__link toc-highlight">Limit External Access</a></li></ul></li><li><a href="#final_notes" class="table-of-contents__link toc-highlight">Final Notes</a><ul><li><a href="#more_sources_of_information" class="table-of-contents__link toc-highlight">More Sources of Information</a></li></ul></li></ul></div></div></div></div></main></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">Documentation</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/">Home</a></li><li class="footer__item"><a href="https://github.com/unraid/docs" target="_blank" rel="noopener noreferrer" class="footer__link-item">Contribute on Github</a></li></ul></div><div class="col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://forums.unraid.net" target="_blank" rel="noopener noreferrer" class="footer__link-item">Forums<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://discordapp.com/invite/unraid" target="_blank" rel="noopener noreferrer" class="footer__link-item">Discord<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div><div class="col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://unraid.net" target="_blank" rel="noopener noreferrer" class="footer__link-item">Unraid Home</a></li><li class="footer__item"><a href="https://newsletter.unraid.net" target="_blank" rel="noopener noreferrer" class="footer__link-item">Newsletter</a></li><li class="footer__item"><a href="https://unraid.net/blog" target="_blank" rel="noopener noreferrer" class="footer__link-item">Blog<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2023 Unraid Inc.</div></div></div></footer></div>
-<script src="/assets/js/runtime~main.1f02846a.js"></script>
+<script src="/assets/js/runtime~main.c686335a.js"></script>
 <script src="/assets/js/main.66ea8b2f.js"></script>
 </body>
 </html>

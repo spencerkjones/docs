@@ -5,7 +5,7 @@
 <meta name="generator" content="Docusaurus v2.4.1">
 <title data-rh="true">Shares | Unraid Docs</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://docs.unraid.net/img/un-mark-gradient.svg"><meta data-rh="true" name="twitter:image" content="https://docs.unraid.net/img/un-mark-gradient.svg"><meta data-rh="true" property="og:url" content="https://docs.unraid.net/unraid-os/manual/shares"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Shares | Unraid Docs"><meta data-rh="true" name="description" content="Once you have assigned some devices to Unraid and started the array, you"><meta data-rh="true" property="og:description" content="Once you have assigned some devices to Unraid and started the array, you"><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://docs.unraid.net/unraid-os/manual/shares"><link data-rh="true" rel="alternate" href="https://docs.unraid.net/unraid-os/manual/shares" hreflang="en"><link data-rh="true" rel="alternate" href="https://docs.unraid.net/zh/unraid-os/manual/shares" hreflang="zh"><link data-rh="true" rel="alternate" href="https://docs.unraid.net/unraid-os/manual/shares" hreflang="x-default"><link rel="alternate" type="application/rss+xml" href="/blog/rss.xml" title="Unraid Docs RSS Feed">
 <link rel="alternate" type="application/atom+xml" href="/blog/atom.xml" title="Unraid Docs Atom Feed"><link rel="stylesheet" href="/assets/css/styles.bf18739c.css">
-<link rel="preload" href="/assets/js/runtime~main.1f02846a.js" as="script">
+<link rel="preload" href="/assets/js/runtime~main.c686335a.js" as="script">
 <link rel="preload" href="/assets/js/main.66ea8b2f.js" as="script">
 </head>
 <body class="navigation-with-keyboard" data-theme="light">
@@ -226,23 +226,23 @@ level 2 to force each complete TV series to remain on a single disk
 without messing up the ability of the movies to split to every disk.\
 \
 \
-Some things to keep in mind.</p><ul><li>The above examples are to demonstrate the use of the split level. It
+Some things to keep in mind.</p><ul><li><p>The above examples are to demonstrate the use of the split level. It
 is not necessary to store your media sorted in the same format as
 the above example illustrates. You may want to use a Movies share
 and then just place a \&quot;Movie Name\&quot; folder for each movie directly
-into the share without sorting the movies by type.</li></ul><ul><li>It is completely valid to force each complete TV series to stay on a
+into the share without sorting the movies by type.</p></li><li><p>It is completely valid to force each complete TV series to stay on a
 single disk. Just understand that a continuing TV series will keep
 filling the disk where it is first placed. This may require manual
 intervention to shift some TV series from an almost full disk to an
 empty disk. Using the Most Free allocation method can help eliminate
 the issue since a completely new TV series would be placed on the
-disk with the most free space.</li></ul><ul><li>The above TV example applies to any similar share. It could apply to
+disk with the most free space.</p></li><li><p>The above TV example applies to any similar share. It could apply to
 a Pictures share where you store the pictures in folders based on
 the year (2010, 2011, 2012 etc) or it could apply to a Music share
 where you store the music in a folder for each artist. In these
 cases, a split level of 1 would keep a whole year of pictures on a
 single disk or it would keep all the music by an artist on a single
-disk.</li></ul><p>\
+disk.</p></li></ul><p>\
 \
 \
 \</p><h5 class="anchor anchorWithStickyNavbar_LWe7" id="disable_split_level"><strong>Disable Split Level</strong><a href="#disable_split_level" class="hash-link" aria-label="Direct link to disable_split_level" title="Direct link to disable_split_level">​</a></h5><p>It is also possible to disable the split level by setting a high split
@@ -256,12 +256,12 @@ as well as some metadata files used by MediaBrowser.</p><p><img loading="lazy" s
 New_Movies share on the left and the contents of the <code>&lt;u&gt;</code>{=html}A
 History of Violence<code>&lt;/u&gt;</code>{=html} movie folder on the right. The levels
 for this share are labeled on the example. This is what split level = 1
-means:</p><ul><li>A New_Movies folder can be created on each disk allowed by the
+means:</p><ul><li><p>A New_Movies folder can be created on each disk allowed by the
 include and exclude disk settings. A new New_Movies folder will be
 created on the next disk in line when the allocation method calls
 for unRAID to begin filling the next disk. Note that the New_Movies
 folder will only be created on the next disk in line when it is
-necessary and not when the share is created.</li></ul><ul><li>The <code>&lt;u&gt;</code>{=html}A History of Violence<code>&lt;/u&gt;</code>{=html} folder can only
+necessary and not when the share is created.</p></li><li><p>The <code>&lt;u&gt;</code>{=html}A History of Violence<code>&lt;/u&gt;</code>{=html} folder can only
 exist on one disk. Once it is created on the disk, all of the
 contents will remain on the same disk. Any changes or additions to
 this folder will remain on the same disk. For example, a new file
@@ -269,7 +269,7 @@ called movie.nfo for the XBMC metadata might be created in this
 folder in the future. The movie.nfo file will be created in the
 existing <code>&lt;u&gt;</code>{=html}A History of Violence<code>&lt;/u&gt;</code>{=html} folder. A
 duplicate <code>&lt;u&gt;</code>{=html}A History of Violence<code>&lt;/u&gt;</code>{=html} folder will
-not be created on another disk to store this new file.</li></ul><p>You will notice that the movie folders <code>&lt;u&gt;</code>{=html}500 Days of Summer
+not be created on another disk to store this new file.</p></li></ul><p>You will notice that the movie folders <code>&lt;u&gt;</code>{=html}500 Days of Summer
 (2009)<code>&lt;/u&gt;</code>{=html} and <code>&lt;u&gt;</code>{=html}2 Fast 2 Furious (2003)<code>&lt;/u&gt;</code>{=html}
 both appear in the New_Movies share. The next screen shot will show how
 each of these files is stored on a separate disk.</p><p><img loading="lazy" src="/assets/images/Movies_Share_Disk_View-93330078b8f073697286d7f11d8cf2fe.JPG" title="File:Movies Share Disk View.JPG" width="1208" height="705" class="img_ev3q"></p><p>The above screen shot shows side by side Window Explorer views of the
@@ -508,7 +508,7 @@ with a specific user fail.</li><li>A workaround that can help with avoiding this
 if you access a server both by it\&#x27;s network name and via it\&#x27;s IP
 address then Windows will treat it a two separate servers as far as
 authentication is concerned.</li></ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="theme-doc-footer-edit-meta-row row"><div class="col"><a href="https://github.com/unraid/docs/tree/main/docs/unraid-os/manual/shares.md" target="_blank" rel="noreferrer noopener" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_vwxv"></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/unraid-os/manual/storage-management"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Storage Management</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/unraid-os/manual/docker-management"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Docker Management</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#user_shares" class="table-of-contents__link toc-highlight">User Shares</a><ul><li><a href="#allocation_method" class="table-of-contents__link toc-highlight">Allocation method</a></li><li><a href="#min._free_space" class="table-of-contents__link toc-highlight">Min. Free Space</a></li><li><a href="#split_level" class="table-of-contents__link toc-highlight">Split level</a></li><li><a href="#included_and_excluded_disks" class="table-of-contents__link toc-highlight">Included and Excluded disk(s)</a></li><li><a href="#default_shares" class="table-of-contents__link toc-highlight">Default Shares</a></li><li><a href="#unraid_6.12" class="table-of-contents__link toc-highlight">Unraid 6.12</a></li><li><a href="#unraid_6.11_and_earlier" class="table-of-contents__link toc-highlight">Unraid 6.11 and earlier</a></li></ul></li><li><a href="#disk_shares" class="table-of-contents__link toc-highlight">Disk Shares</a></li><li><a href="#network_access" class="table-of-contents__link toc-highlight">Network access</a></li><li><a href="#access_permissions" class="table-of-contents__link toc-highlight">Access Permissions</a></li></ul></div></div></div></div></main></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">Documentation</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/">Home</a></li><li class="footer__item"><a href="https://github.com/unraid/docs" target="_blank" rel="noopener noreferrer" class="footer__link-item">Contribute on Github</a></li></ul></div><div class="col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://forums.unraid.net" target="_blank" rel="noopener noreferrer" class="footer__link-item">Forums<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://discordapp.com/invite/unraid" target="_blank" rel="noopener noreferrer" class="footer__link-item">Discord<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div><div class="col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://unraid.net" target="_blank" rel="noopener noreferrer" class="footer__link-item">Unraid Home</a></li><li class="footer__item"><a href="https://newsletter.unraid.net" target="_blank" rel="noopener noreferrer" class="footer__link-item">Newsletter</a></li><li class="footer__item"><a href="https://unraid.net/blog" target="_blank" rel="noopener noreferrer" class="footer__link-item">Blog<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2023 Unraid Inc.</div></div></div></footer></div>
-<script src="/assets/js/runtime~main.1f02846a.js"></script>
+<script src="/assets/js/runtime~main.c686335a.js"></script>
 <script src="/assets/js/main.66ea8b2f.js"></script>
 </body>
 </html>

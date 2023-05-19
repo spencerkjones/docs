@@ -5,7 +5,7 @@
 <meta name="generator" content="Docusaurus v2.4.1">
 <title data-rh="true">Security | Unraid Docs</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://docs.unraid.net/img/un-mark-gradient.svg"><meta data-rh="true" name="twitter:image" content="https://docs.unraid.net/img/un-mark-gradient.svg"><meta data-rh="true" property="og:url" content="https://docs.unraid.net/unraid-os/manual/security"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Security | Unraid Docs"><meta data-rh="true" name="description" content="This section covers various security-related aspects of Unraid"><meta data-rh="true" property="og:description" content="This section covers various security-related aspects of Unraid"><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://docs.unraid.net/unraid-os/manual/security"><link data-rh="true" rel="alternate" href="https://docs.unraid.net/unraid-os/manual/security" hreflang="en"><link data-rh="true" rel="alternate" href="https://docs.unraid.net/zh/unraid-os/manual/security" hreflang="zh"><link data-rh="true" rel="alternate" href="https://docs.unraid.net/unraid-os/manual/security" hreflang="x-default"><link rel="alternate" type="application/rss+xml" href="/blog/rss.xml" title="Unraid Docs RSS Feed">
 <link rel="alternate" type="application/atom+xml" href="/blog/atom.xml" title="Unraid Docs Atom Feed"><link rel="stylesheet" href="/assets/css/styles.bf18739c.css">
-<link rel="preload" href="/assets/js/runtime~main.1f02846a.js" as="script">
+<link rel="preload" href="/assets/js/runtime~main.c686335a.js" as="script">
 <link rel="preload" href="/assets/js/main.66ea8b2f.js" as="script">
 </head>
 <body class="navigation-with-keyboard" data-theme="light">
@@ -37,7 +37,7 @@ assessment of the strength of any specific password.</p><h3 class="anchor anchor
 you want to be Internet-accessible such as Plex, FTP servers, game
 servers, VoIP servers, etc. But forwarding the wrong ports can expose
 your server to significant security risk. Here are just a few ports you
-should be extra careful with when forwarding:</p><ul><li><strong>Port 80</strong>: Used to access the webGui without SSL (unless you\&#x27;ve
+should be extra careful with when forwarding:</p><ul><li><p><strong>Port 80</strong>: Used to access the webGui without SSL (unless you\&#x27;ve
 rebound access to another port on the Management Access settings
 page). Forwarding this port by default will allow you to access the
 webGui remotely, but without SSL securing the connection, devices in
@@ -45,7 +45,7 @@ between your browser and the server could \&quot;sniff\&quot; the packets to
 see what you\&#x27;re doing. If you want to make the webGui remotely
 accessible, install the My Servers plugin, which can provide a
 secure remote access solution that utilizes SSL to ensure your
-connection is fully encrypted.</li></ul><ul><li><strong>Port 443</strong>: Used to access the webGui with SSL. This is only
+connection is fully encrypted.</p></li><li><p><strong>Port 443</strong>: Used to access the webGui with SSL. This is only
 better than port 80 if you have a root password set. If no root
 password is set and you forward this port, unauthorized users can
 connect to your webGui and have full access to your server. In
@@ -54,7 +54,7 @@ plugin, attempts to connect to the webGui through a browser will
 present a security warning due to the lack of an SSL certificate.
 Consider making life easier for yourself and utilize the My Servers
 plugin to enable simple, safe, and secure remote access to your
-Unraid systems.</li></ul><ul><li><strong>Port 445</strong>: Used for SMB (shares). If you forward this port to
+Unraid systems.</p></li><li><p><strong>Port 445</strong>: Used for SMB (shares). If you forward this port to
 your server, any public shares can be connected to by any user over
 the internet. Generally speaking, it is never advisable to expose
 SMB shares directly over the internet. If you need the ability to
@@ -62,21 +62,21 @@ access your shares remotely, we suggest utilizing a WireGuard VPN to
 create a secure tunnel between your device and the server. In
 addition, if the flash device itself is exported using SMB and this
 port is forwarded, its contents can easily be deleted and your paid
-key could easily be stolen. Just don\&#x27;t do this.</li></ul><ul><li><strong>Port 111/2049:</strong> Used for NFS (shares). While NFS is disabled by
+key could easily be stolen. Just don\&#x27;t do this.</p></li><li><p><strong>Port 111/2049:</strong> Used for NFS (shares). While NFS is disabled by
 default, if you are making use of this protocol, just make sure you
 aren\&#x27;t forwarding these ports through your router. Similar to SMB,
 just utilize WireGuard to create a secure tunnel from any remote
-devices that need to connect to the server over NFS.</li></ul><ul><li><strong>Port 22/23:</strong> Used by Telnet and SSH for console access.
+devices that need to connect to the server over NFS.</p></li><li><p><strong>Port 22/23:</strong> Used by Telnet and SSH for console access.
 Especially dangerous for users that don\&#x27;t have a root password set.
 Similar to SMB, we don\&#x27;t recommend forwarding these ports at all,
 but rather, suggest users leverage a WireGuard VPN connection for
-the purposes of connecting using either of these protocols.</li></ul><ul><li><strong>Ports in the 57xx range:</strong> These ports are generally used by VMs
+the purposes of connecting using either of these protocols.</p></li><li><p><strong>Ports in the 57xx range:</strong> These ports are generally used by VMs
 for VNC access. While you can forward these ports to enable VNC
 access remotely for your VMs, the better and easier way to do this
 is through installing the <a title="wikilink" href="/unraid-os/manual/My_Servers">My Servers
 plugin</a>. This ensures that those connections
 are secure via SSL and does not require individual ports to be
-forwarded for each VM.</li></ul><p>Generally speaking, you really shouldn\&#x27;t need to forward many ports to
+forwarded for each VM.</p></li></ul><p>Generally speaking, you really shouldn\&#x27;t need to forward many ports to
 your server. If you see a forwarding rule you don\&#x27;t understand,
 consider removing it, see if anyone complains, and if so, you can always
 put it back.</p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="never_ever_ever_put_your_server_in_the_dmz">Never ever ever put your server in the DMZ<a href="#never_ever_ever_put_your_server_in_the_dmz" class="hash-link" aria-label="Direct link to Never ever ever put your server in the DMZ" title="Direct link to Never ever ever put your server in the DMZ">​</a></h3><p>No matter how locked down you think you have your server, it is never
@@ -343,47 +343,47 @@ thread</a>
 covering setting up incoming connections.</li><li><a href="https://forums.unraid.net/topic/84316-wireguard-vpn-tunneled-access/" target="_blank" rel="noopener noreferrer">Forum
 thread</a>
 covering setting up outgoing connections.</li></ul><p>What can you do with WireGuard? Let\&#x27;s walk through each of the
-connection types:</p><ul><li><strong>Remote access to server</strong>: Use your phone or computer to remotely
-access your Unraid server, including:<ul><li>Unraid administration via the webgui</li><li>Access dockers, VMs, and network shares as though you were
-physically connected to the network</li></ul></li></ul><ul><li><strong>Remote access to LAN</strong>: Builds on \&quot;Remote access to server\&quot;,
-allowing you to access your entire LAN as well.</li></ul><ul><li><strong>Server to server access</strong>: Allows two Unraid servers to connect to
-each other.</li></ul><ul><li><strong>LAN to LAN access</strong>: Builds on \&quot;Server to server access\&quot;,
+connection types:</p><ul><li><p><strong>Remote access to server</strong>: Use your phone or computer to remotely
+access your Unraid server, including:</p><ul><li>Unraid administration via the webgui</li><li>Access dockers, VMs, and network shares as though you were
+physically connected to the network</li></ul></li><li><p><strong>Remote access to LAN</strong>: Builds on \&quot;Remote access to server\&quot;,
+allowing you to access your entire LAN as well.</p></li><li><p><strong>Server to server access</strong>: Allows two Unraid servers to connect to
+each other.</p></li><li><p><strong>LAN to LAN access</strong>: Builds on \&quot;Server to server access\&quot;,
 allowing two entire networks to communicate. May require additional
-settings, TBD.</li></ul><ul><li><strong>Server hub &amp; spoke access</strong>: Builds on \&quot;Remote access to
+settings, TBD.</p></li><li><p><strong>Server hub &amp; spoke access</strong>: Builds on \&quot;Remote access to
 server\&quot;, except that all of the VPN clients can connect to each
-other as well. Note that all traffic passes through the server.</li></ul><ul><li><strong>LAN hub &amp; spoke access</strong>: Builds on \&quot;Server hub &amp; spoke access\&quot;,
-allowing you to access your entire LAN as well.</li></ul><ul><li><strong>VPN tunneled access</strong>: Route traffic for specific Dockers and VMs
-through a commercial WireGuard VPN provider (see this guide)</li></ul><ul><li><strong>Remote tunneled access</strong>: Securely access the Internet from
+other as well. Note that all traffic passes through the server.</p></li><li><p><strong>LAN hub &amp; spoke access</strong>: Builds on \&quot;Server hub &amp; spoke access\&quot;,
+allowing you to access your entire LAN as well.</p></li><li><p><strong>VPN tunneled access</strong>: Route traffic for specific Dockers and VMs
+through a commercial WireGuard VPN provider (see this guide)</p></li><li><p><strong>Remote tunneled access</strong>: Securely access the Internet from
 untrusted networks by routing all of your traffic through the VPN
-and out Unraid\&#x27;s Internet connection</li></ul><p>The following diagram attempts to show these different connection types
+and out Unraid\&#x27;s Internet connection</p></li></ul><p>The following diagram attempts to show these different connection types
 in a graphical format</p><p><a href="file:Wireguard-help.png" target="_blank" rel="noopener noreferrer" title="wikilink"></a></p><h4 class="anchor anchorWithStickyNavbar_LWe7" id="incoming_vpn_connections">Incoming VPN Connections<a href="#incoming_vpn_connections" class="hash-link" aria-label="Direct link to Incoming VPN Connections" title="Direct link to Incoming VPN Connections">​</a></h4><p>This section will walk through how to setup WireGuard so that your
 trusted devices can VPN into your home network to access Unraid and the
-other systems on your network.</p><p><strong>Prerequisites</strong></p><ul><li>You must be running Unraid 6.8 with the Dynamix WireGuard plugin
-installed via the <strong>Apps</strong> tab (Community Applications).</li></ul><ul><li>Be aware that WireGuard is technically classified as experimental.
+other systems on your network.</p><p><strong>Prerequisites</strong></p><ul><li><p>You must be running Unraid 6.8 with the Dynamix WireGuard plugin
+installed via the <strong>Apps</strong> tab (Community Applications).</p></li><li><p>Be aware that WireGuard is technically classified as experimental.
 It has not gone through a full security audit yet and has not
 reached 1.0 status. But it is the first open-source VPN solution
 that is extremely simple to install, fast, and designed from the
-ground up to be secure.</li></ul><ul><li>Understand that giving someone VPN access to your LAN is just like
+ground up to be secure.</p></li><li><p>Understand that giving someone VPN access to your LAN is just like
 giving them physical access to your LAN, except they have it 24x7
 when you aren\&#x27;t around to supervise. Only give access to people and
 devices that you trust, and make certain that the configuration
 details (particularly the private keys) are not passed around
 insecurely. Regardless of the \&quot;connection type\&quot; you choose, assume
 that anyone who gets access to this configuration information will
-be able to get full access to your network.</li></ul><ul><li>This guide works great for simple networks. But if you have Dockers
+be able to get full access to your network.</p></li><li><p>This guide works great for simple networks. But if you have Dockers
 with custom IPs or VMs with strict networking requirements, please
-see the \&quot;Complex Networks\&quot; section below.</li></ul><ul><li>Unraid will automatically configure your WireGuard clients to
+see the \&quot;Complex Networks\&quot; section below.</p></li><li><p>Unraid will automatically configure your WireGuard clients to
 connect to Unraid using your current public IP address, which will
 work until that IP address changes. To future-proof the setup, you
 can use Dynamic DNS instead. There are many ways to do this,
 probably the easiest is described in this <a href="https://www.youtube.com/watch?v=9FkQ0wYpCV0" target="_blank" rel="noopener noreferrer">2 minute video from
-SpaceInvaderOne</a>.</li></ul><ul><li>If your router has UPnP enabled, Unraid will be able to
+SpaceInvaderOne</a>.</p></li><li><p>If your router has UPnP enabled, Unraid will be able to
 automatically forward the port for you. If not, you will need to
-know how to configure your router to forward a port.</li></ul><ul><li>You will need to install WireGuard on a client system. It is
+know how to configure your router to forward a port.</p></li><li><p>You will need to install WireGuard on a client system. It is
 available for many operating systems as mentioned at <a href="https://www.wireguard.com/install/" target="_blank" rel="noopener noreferrer">WireGuard
 clients</a>. Android or iOS make
 good first client systems because you can get all the details via QR
-code.</li></ul><p><strong>Setting up the Unraid side of the VPN tunnel</strong></p><ul><li>First, go to Settings -<!-- -->&gt;<!-- --> Network Settings -<!-- -->&gt;<!-- --> Interface eth0. If
+code.</p></li></ul><p><strong>Setting up the Unraid side of the VPN tunnel</strong></p><ul><li>First, go to Settings -<!-- -->&gt;<!-- --> Network Settings -<!-- -->&gt;<!-- --> Interface eth0. If
 \&quot;Enable bridging\&quot; is \&quot;Yes\&quot;, then WireGuard will work as
 described below. If bridging is disabled, then none of the \&quot;Peer
 type of connections\&quot; that involve the local LAN will work properly.
@@ -475,7 +475,7 @@ and is assigned to your \&quot;Local endpoint\&quot;</li><li>Confirm that you fo
 to Unraid, and assigned that same port to the \&quot;Local endpoint\&quot;</li><li>If you made any changes to your configuration after setting up your
 clients, you will need to set the clients up again so they have the
 latest config.</li><li>Be sure you save your changes before you press \&quot;View Peer Config\&quot;,
-otherwise your QR codes/files will not have the latest data.</li></ul><p>A few other ideas:</p><p><code> * For your first client, setup a phone using its data connection (not wifi). This eliminates issues related to the client network, and the QR code is the easiest way to transfer settings. Once you have it working from your phone, move on to other clients. </code></p><p>Disable any energy-saving features on the client, phones in particular
+otherwise your QR codes/files will not have the latest data.</li></ul><p>A few other ideas:</p><p><code>* For your first client, setup a phone using its data connection (not wifi). This eliminates issues related to the client network, and the QR code is the easiest way to transfer settings. Once you have it working from your phone, move on to other clients.</code></p><p>Disable any energy-saving features on the client, phones in particular
 may not use VPNs properly when in low power mode. Also, you may need to
 disable any \&quot;Data Saver\&quot; features on the phone so that VPN is not
 throttled. See this post.</p><p><code>* If your &quot;Peer type of connection&quot; includes one of the LAN options but you can only access Unraid, go to Settings -&gt; Network Settings and see whether &quot;Enable bridging&quot; is yes.  If bridging is disabled, you will not be able to access your LAN over WireGuard.</code></p><ul><li>If you are connecting from another network over the Internet, be
@@ -491,7 +491,7 @@ a conflict you will need to change it to a different private network
 (10.0.0.0 to 10.255.255.255 <!-- -->|<!-- --> 172.16.0.0 to 172.31.255.255 <!-- -->|<!-- -->
 192.168.0.0 to 192.168.255.255)</li><li>If you can\&#x27;t reach the Unraid webgui for some reason and you need
 to prevent a WireGuard tunnel from automatically starting, delete
-this file from your flash drive and reboot:</li></ul><p><code> /boot/config/wireguard/autostart</code></p><ul><li>Note that if you have Dockers with custom IPs or VMs with strict
+this file from your flash drive and reboot:</li></ul><p><code>/boot/config/wireguard/autostart</code></p><ul><li>Note that if you have Dockers with custom IPs or VMs with strict
 networking requirements, you will likely have issues. Please see the
 \&quot;Complex Networks\&quot; section above.</li></ul><h4 class="anchor anchorWithStickyNavbar_LWe7" id="outgoing_vpn_connections">Outgoing VPN Connections<a href="#outgoing_vpn_connections" class="hash-link" aria-label="Direct link to Outgoing VPN Connections" title="Direct link to Outgoing VPN Connections">​</a></h4><p>This section explains how to make an outgoing WireGuard VPN connection
 from an Unraid server to a commercial VPN provider. If you are trying to
@@ -531,7 +531,7 @@ covering setting up incoming connections.</li><li><a href="https://forums.unraid
 thread</a>
 covering setting up outgoing connections.</li></ul><p><a href="https://www.wireguard.com/" target="_blank" rel="noopener noreferrer">\&quot;WireGuard\&quot; and the \&quot;WireGuard\&quot; logo are registered trademarks of
 Jason A. Donenfeld.</a></p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="theme-doc-footer-edit-meta-row row"><div class="col"><a href="https://github.com/unraid/docs/tree/main/docs/unraid-os/manual/security.md" target="_blank" rel="noreferrer noopener" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_vwxv"></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/unraid-os/manual/configuring-time-machine"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Apple Time Machine</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/unraid-os/manual/tools"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Tools</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#good_practices" class="table-of-contents__link toc-highlight">Good Practices</a><ul><li><a href="#set_a_strong_root_password" class="table-of-contents__link toc-highlight">Set a strong root password</a></li><li><a href="#review_port_mappings_on_your_router" class="table-of-contents__link toc-highlight">Review port mappings on your router</a></li><li><a href="#never_ever_ever_put_your_server_in_the_dmz" class="table-of-contents__link toc-highlight">Never ever ever put your server in the DMZ</a></li><li><a href="#consider_setting_shares_to_private_with_users_and_passwords" class="table-of-contents__link toc-highlight">Consider setting shares to private with users and passwords</a></li><li><a href="#dont_expose_the_flash_share_and_if_you_do_make_it_private" class="table-of-contents__link toc-highlight">Don&#39;t expose the Flash share, and if you do, make it private</a></li><li><a href="#keep_your_server_up_to_date" class="table-of-contents__link toc-highlight">Keep your server up-to-date</a></li><li><a href="#use_a_secure_method_for_remote_administration" class="table-of-contents__link toc-highlight">Use a secure method for remote administration</a></li></ul></li><li><a href="#securing_webgui_connections_ssl" class="table-of-contents__link toc-highlight">Securing webGui connections (SSL)</a><ul><li><a href="#a_few_details_before_we_begin" class="table-of-contents__link toc-highlight">A few details before we begin</a></li><li><a href="#how_would_you_like_to_access_the_unraid_webgui_while_on_your_lan" class="table-of-contents__link toc-highlight">How would you like to access the Unraid webGui while on your LAN?</a></li><li><a href="#redirects" class="table-of-contents__link toc-highlight">Redirects</a></li><li><a href="#my_servers_remote_access" class="table-of-contents__link toc-highlight">My Servers Remote Access</a></li><li><a href="#custom_certificates" class="table-of-contents__link toc-highlight">Custom Certificates</a></li></ul></li><li><a href="#data_encryption" class="table-of-contents__link toc-highlight">Data Encryption</a></li><li><a href="#flash_drive" class="table-of-contents__link toc-highlight">Flash Drive</a><ul><li><a href="#backups" class="table-of-contents__link toc-highlight">Backups</a></li><li><a href="#network_access" class="table-of-contents__link toc-highlight">Network Access</a></li><li><a href="#permissions" class="table-of-contents__link toc-highlight">Permissions</a></li></ul></li><li><a href="#vpn" class="table-of-contents__link toc-highlight">VPN</a><ul><li><a href="#router" class="table-of-contents__link toc-highlight">Router</a></li><li><a href="#openvpn" class="table-of-contents__link toc-highlight">OpenVPN</a></li><li><a href="#wireguard" class="table-of-contents__link toc-highlight">WireGuard</a></li></ul></li></ul></div></div></div></div></main></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">Documentation</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/">Home</a></li><li class="footer__item"><a href="https://github.com/unraid/docs" target="_blank" rel="noopener noreferrer" class="footer__link-item">Contribute on Github</a></li></ul></div><div class="col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://forums.unraid.net" target="_blank" rel="noopener noreferrer" class="footer__link-item">Forums<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://discordapp.com/invite/unraid" target="_blank" rel="noopener noreferrer" class="footer__link-item">Discord<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div><div class="col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://unraid.net" target="_blank" rel="noopener noreferrer" class="footer__link-item">Unraid Home</a></li><li class="footer__item"><a href="https://newsletter.unraid.net" target="_blank" rel="noopener noreferrer" class="footer__link-item">Newsletter</a></li><li class="footer__item"><a href="https://unraid.net/blog" target="_blank" rel="noopener noreferrer" class="footer__link-item">Blog<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2023 Unraid Inc.</div></div></div></footer></div>
-<script src="/assets/js/runtime~main.1f02846a.js"></script>
+<script src="/assets/js/runtime~main.c686335a.js"></script>
 <script src="/assets/js/main.66ea8b2f.js"></script>
 </body>
 </html>

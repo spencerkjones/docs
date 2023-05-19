@@ -5,7 +5,7 @@
 <meta name="generator" content="Docusaurus v2.4.1">
 <title data-rh="true">Building_an_unRAID_Server | Unraid Docs</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://docs.unraid.net/img/un-mark-gradient.svg"><meta data-rh="true" name="twitter:image" content="https://docs.unraid.net/img/un-mark-gradient.svg"><meta data-rh="true" property="og:url" content="https://docs.unraid.net/legacy/FAQ/Building_an_unRAID_Server"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Building_an_unRAID_Server | Unraid Docs"><meta data-rh="true" name="description" content="\"><meta data-rh="true" property="og:description" content="\"><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://docs.unraid.net/legacy/FAQ/Building_an_unRAID_Server"><link data-rh="true" rel="alternate" href="https://docs.unraid.net/legacy/FAQ/Building_an_unRAID_Server" hreflang="en"><link data-rh="true" rel="alternate" href="https://docs.unraid.net/zh/legacy/FAQ/Building_an_unRAID_Server" hreflang="zh"><link data-rh="true" rel="alternate" href="https://docs.unraid.net/legacy/FAQ/Building_an_unRAID_Server" hreflang="x-default"><link rel="alternate" type="application/rss+xml" href="/blog/rss.xml" title="Unraid Docs RSS Feed">
 <link rel="alternate" type="application/atom+xml" href="/blog/atom.xml" title="Unraid Docs Atom Feed"><link rel="stylesheet" href="/assets/css/styles.bf18739c.css">
-<link rel="preload" href="/assets/js/runtime~main.1f02846a.js" as="script">
+<link rel="preload" href="/assets/js/runtime~main.c686335a.js" as="script">
 <link rel="preload" href="/assets/js/main.66ea8b2f.js" as="script">
 </head>
 <body class="navigation-with-keyboard" data-theme="light">
@@ -155,22 +155,22 @@ memory errors.</li><li>Press the \&lt;Esc<!-- -->&gt;<!-- --> key to reboot, and
 and press the <code>&lt;Enter&gt;</code>{=html} key, no password will be needed.
 \&#x27;\&#x27;(Later, you may want to set a root password on the <strong>Users</strong> tab of
 the unRAID Web Management pages.)</p><p>Verify that you have an IP address by typing <strong>ifconfig</strong> and pressing
-the <code>&lt;Enter&gt;</code>{=html} key. You should get an output similar to this:</p><p><code> eth0      Link encap:Ethernet  HWaddr 00:1A:4D:27:13:8A</code>\
-<code>           </code><strong><code>inet addr:10.0.1.57</code></strong><code>  Bcast:10.0.255.255  Mask:255.255.0.0</code>\
-<code>           UP BROADCAST NOTRAILERS RUNNING MULTICAST  MTU:1500  Metric:1</code>\
-<code>           RX packets:16261 errors:0 dropped:0 overruns:0 frame:0</code>\
-<code>           TX packets:2850 errors:0 dropped:0 overruns:0 carrier:0</code>\
-<code>           collisions:0 txqueuelen:1000</code>\
-<code>           RX bytes:1067783 (1.0 MiB)  TX bytes:1193253 (1.1 MiB)</code>\
-<code>           Interrupt:21 Base address:0xa000</code>\
-<code> </code>\
-<code> lo        Link encap:Local Loopback</code>\
-<code>           inet addr:127.0.0.1  Mask:255.0.0.0</code>\
-<code>           UP LOOPBACK RUNNING  MTU:16436  Metric:1</code>\
-<code>           RX packets:0 errors:0 dropped:0 overruns:0 frame:0</code>\
-<code>           TX packets:0 errors:0 dropped:0 overruns:0 carrier:0</code>\
-<code>           collisions:0 txqueuelen:0</code>\
-<code>           RX bytes:0 (0.0 b)  TX bytes:0 (0.0 b)</code></p><p>On a computer that is on the same network, open a browser and go to:</p><p>:   <strong>http://tower</strong></p><p>This should take you to the unRAID Web Management \&#x27;Main\&#x27; page, where
+the <code>&lt;Enter&gt;</code>{=html} key. You should get an output similar to this:</p><p><code>eth0      Link encap:Ethernet  HWaddr 00:1A:4D:27:13:8A</code>\
+<code>**`inet addr:10.0.1.57`**`Bcast:10.0.255.255  Mask:255.255.0.0`\
+`UP BROADCAST NOTRAILERS RUNNING MULTICAST  MTU:1500  Metric:1`\
+`RX packets:16261 errors:0 dropped:0 overruns:0 frame:0`\
+`TX packets:2850 errors:0 dropped:0 overruns:0 carrier:0`\
+`collisions:0 txqueuelen:1000`\
+`RX bytes:1067783 (1.0 MiB)  TX bytes:1193253 (1.1 MiB)`\
+`Interrupt:21 Base address:0xa000`\
+</code>\
+<code>lo        Link encap:Local Loopback</code>\
+<code>inet addr:127.0.0.1  Mask:255.0.0.0</code>\
+<code>UP LOOPBACK RUNNING  MTU:16436  Metric:1</code>\
+<code>RX packets:0 errors:0 dropped:0 overruns:0 frame:0</code>\
+<code>TX packets:0 errors:0 dropped:0 overruns:0 carrier:0</code>\
+<code>collisions:0 txqueuelen:0</code>\
+<code>RX bytes:0 (0.0 b)  TX bytes:0 (0.0 b)</code></p><p>On a computer that is on the same network, open a browser and go to:</p><p>:   <strong><a href="http://tower" target="_blank" rel="noopener noreferrer">http://tower</a></strong></p><p>This should take you to the unRAID Web Management \&#x27;Main\&#x27; page, where
 almost all unRAID setup and management of your server is handled.</p><p>If you are using a Mac, you may initially need to use your server\&#x27;s IP
 address instead of \&#x27;tower\&#x27;. For further instruction, please see the
 <a title="wikilink" href="/legacy/FAQ/FAQ#Apple_Mac_Questions">FAQ, Apple Mac Questions</a> section.</p><p>\
@@ -230,7 +230,7 @@ consoles and using Linux in the <a title="wikilink" href="/legacy/FAQ/FAQ#unRAID
 Questions</a>
 section of the <a title="wikilink" href="/legacy/FAQ/FAQ">FAQ</a>.</li></ul><p>\</p><p><a href="Category:_Getting_started" target="_blank" rel="noopener noreferrer" title="wikilink">Category: Getting started</a>
 <a href="Category:_How_To" target="_blank" rel="noopener noreferrer" title="wikilink">Category: How To</a></p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="theme-doc-footer-edit-meta-row row"><div class="col"><a href="https://github.com/unraid/docs/tree/main/docs/legacy/FAQ/Building_an_unRAID_Server.md" target="_blank" rel="noreferrer noopener" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_vwxv"></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/legacy/Articles/upgrading-to-unraid-6"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Upgrading to Unraid 6</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/legacy/FAQ/Cache_disk"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Cache_disk</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#introduction" class="table-of-contents__link toc-highlight">Introduction</a></li></ul></div></div></div></div></main></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">Documentation</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/">Home</a></li><li class="footer__item"><a href="https://github.com/unraid/docs" target="_blank" rel="noopener noreferrer" class="footer__link-item">Contribute on Github</a></li></ul></div><div class="col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://forums.unraid.net" target="_blank" rel="noopener noreferrer" class="footer__link-item">Forums<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://discordapp.com/invite/unraid" target="_blank" rel="noopener noreferrer" class="footer__link-item">Discord<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div><div class="col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://unraid.net" target="_blank" rel="noopener noreferrer" class="footer__link-item">Unraid Home</a></li><li class="footer__item"><a href="https://newsletter.unraid.net" target="_blank" rel="noopener noreferrer" class="footer__link-item">Newsletter</a></li><li class="footer__item"><a href="https://unraid.net/blog" target="_blank" rel="noopener noreferrer" class="footer__link-item">Blog<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2023 Unraid Inc.</div></div></div></footer></div>
-<script src="/assets/js/runtime~main.1f02846a.js"></script>
+<script src="/assets/js/runtime~main.c686335a.js"></script>
 <script src="/assets/js/main.66ea8b2f.js"></script>
 </body>
 </html>

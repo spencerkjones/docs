@@ -5,7 +5,7 @@
 <meta name="generator" content="Docusaurus v2.4.1">
 <title data-rh="true">Troubleshooting | Unraid Docs</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://docs.unraid.net/img/un-mark-gradient.svg"><meta data-rh="true" name="twitter:image" content="https://docs.unraid.net/img/un-mark-gradient.svg"><meta data-rh="true" property="og:url" content="https://docs.unraid.net/unraid-os/manual/troubleshooting"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Troubleshooting | Unraid Docs"><meta data-rh="true" name="description" content="THIS SECTION IS STILL UNDER CONSTRUCTION"><meta data-rh="true" property="og:description" content="THIS SECTION IS STILL UNDER CONSTRUCTION"><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://docs.unraid.net/unraid-os/manual/troubleshooting"><link data-rh="true" rel="alternate" href="https://docs.unraid.net/unraid-os/manual/troubleshooting" hreflang="en"><link data-rh="true" rel="alternate" href="https://docs.unraid.net/zh/unraid-os/manual/troubleshooting" hreflang="zh"><link data-rh="true" rel="alternate" href="https://docs.unraid.net/unraid-os/manual/troubleshooting" hreflang="x-default"><link rel="alternate" type="application/rss+xml" href="/blog/rss.xml" title="Unraid Docs RSS Feed">
 <link rel="alternate" type="application/atom+xml" href="/blog/atom.xml" title="Unraid Docs Atom Feed"><link rel="stylesheet" href="/assets/css/styles.bf18739c.css">
-<link rel="preload" href="/assets/js/runtime~main.1f02846a.js" as="script">
+<link rel="preload" href="/assets/js/runtime~main.c686335a.js" as="script">
 <link rel="preload" href="/assets/js/main.66ea8b2f.js" as="script">
 </head>
 <body class="navigation-with-keyboard" data-theme="light">
@@ -273,16 +273,16 @@ mode to avoid any changes to the drive that will invalidate parity.</li><li>Any 
 cannot tell if it is parity1 or parity2 if you have dual parity).</li><li>While the drive is mounted you might want to look quickly at the
 contents if the order of the data drives matters to you to see if
 you can identify the order for the data drives</li></ul><p><strong>2) Using Unraid built-in capability</strong></p><p>This approach does not need to use a 3rd party plugin and will
-invalidate parity so that it need so be rebuilt.</p><p>The process is:</p><ul><li>Assign <strong>ALL</strong> data drives to the array and start the array. Unraid
+invalidate parity so that it need so be rebuilt.</p><p>The process is:</p><ul><li><p>Assign <strong>ALL</strong> data drives to the array and start the array. Unraid
 will recognise any drives that have previously been used by Unraid
-and leave their contents intact</li></ul><ul><li>At this point any parity drives will show as <strong>unmountable</strong> since
+and leave their contents intact</p></li><li><p>At this point any parity drives will show as <strong>unmountable</strong> since
 the parity drives contain no file system. You should have the same
 number of unmountable drives as you had parity drives and as long as
 this is the case make a note of their serial numbers. If this is not
 the case ask for help in the Unraid forums on the best way to
-proceed.</li><li>While the drives are mounted you might want to look quickly at the
+proceed.</p></li><li><p>While the drives are mounted you might want to look quickly at the
 contents if the order of the data drives matters to you to see if
-you can identify the order for the data drives.</li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="backing_up_boot_drive">Backing Up Boot Drive<a href="#backing_up_boot_drive" class="hash-link" aria-label="Direct link to Backing Up Boot Drive" title="Direct link to Backing Up Boot Drive">​</a></h3><p>Since the Unraid boot dtive contains all user specific settings in the
+you can identify the order for the data drives.</p></li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="backing_up_boot_drive">Backing Up Boot Drive<a href="#backing_up_boot_drive" class="hash-link" aria-label="Direct link to Backing Up Boot Drive" title="Direct link to Backing Up Boot Drive">​</a></h3><p>Since the Unraid boot dtive contains all user specific settings in the
 &#x27;config&#x27; folder You should ideally always make a backup of the Unraid
 boot drive any time you make any significant configuration changes.</p><p>There are various ways of achieving this:</p><ul><li>From the Unraid GUI via Main -<!-- -->&gt;<!-- --> Boot -<!-- -->&gt;<!-- --> Device -<!-- -->&gt;<!-- --> Flash -<!-- -->&gt;<!-- --> Flash
 Backup. This will create a zip file that you then download.</li><li>by Installing the My Servers plugin that provides for automated
@@ -355,7 +355,7 @@ overall shutdown timer and when this timer is exceeded, an unclean
 shutdown will occur.  This timer has to be more than the VM and
 docker shutdown timers  A reasonable value might be something like
 420 seconds (7 minutes) to give the system time to completely shut
-down all VMs, Dockers, and plugins. </li></ul><p>It can be useful to use the <strong>Stop</strong> option on the Main tab with your
+down all VMs, Dockers, and plugins.</li></ul><p>It can be useful to use the <strong>Stop</strong> option on the Main tab with your
 normal workload running and time how long it takes. The overall shutdown
 timer should be set to at least this value plus a small extra margin to
 allow for variability.</p><p>If you server seems hung and nothing responds, try a quick press of the
@@ -464,7 +464,7 @@ it using parity, the normal Unraid recovery processes cannot be used. In
 such a case you can try using <strong>ddrescue</strong> to salvage as much data as
 possible.</p><p>To install <em>ddrescue</em> install the Nerd Pack plugin then go to Settings
 -<!-- -->&gt;<!-- --> Nerd Pack and install <em>ddrescue</em>.</p><p>You need an extra disk (same size or larger than the failing disk) to
-clone the old disk to, using the console/SSH type:</p><p><code> ddrescue -f /dev/sdX /dev/sdY /boot/ddrescue.log</code></p><p>Both source and destination disks can\&#x27;t be mounted, replace X with
+clone the old disk to, using the console/SSH type:</p><p><code>ddrescue -f /dev/sdX /dev/sdY /boot/ddrescue.log</code></p><p>Both source and destination disks can\&#x27;t be mounted, replace X with
 source disk, Y with destination disk, always triple-check these, if the
 wrong disk is used as destination it will be overwritten deleting all
 data.</p><p>It\&#x27;s also possible to use an array disk as the destination, though only
@@ -473,25 +473,25 @@ only clone the partition, so the existing array disk needs to be a
 formatted Unraid disk already in any filesystem, still to maintain
 parity you need to use the md# device and the array needs to be started
 in maintenance mode, i.e., not accessible during the copy, by using the
-command:</p><p><code> ddrescue -f /dev/sdX1 /dev/md# /boot/ddrescue.log</code></p><p>Replace X with source disk (note de 1 in the source disk identifier), <!-- -->#<!-- -->
+command:</p><p><code>ddrescue -f /dev/sdX1 /dev/md# /boot/ddrescue.log</code></p><p>Replace X with source disk (note de 1 in the source disk identifier), <!-- -->#<!-- -->
 with destination disk number, recommend enabling turbo write first or it
-will take much longer.</p><p>Example output during the 1st pass:</p><p><code> GNU ddrescue 1.22</code>\
-<code>    ipos:  926889 MB, non-trimmed:    1695 kB,  current rate:  95092 kB/s</code>\
-<code>    opos:  926889 MB, non-scraped:        0 B,  average rate:  79236 kB/s</code>\
-<code> non-tried:    1074 GB,  bad-sector:        0 B,    error rate:       0 B/s</code>\
-<code>   rescued:  925804 MB,   bad areas:        0,        run time:  3h 14m 44s</code>\
-<code> pct rescued:   46.28%, read errors:       54,  remaining time:      3h 18m</code>\
-<code>                             time since last successful read:          0s</code>\
-<code> Copying non-tried blocks... Pass 1 (forwards)</code></p><p>After copying all the good blocks ddrescue will retry the bad blocks,
+will take much longer.</p><p>Example output during the 1st pass:</p><p><code>GNU ddrescue 1.22</code>\
+<code>ipos:  926889 MB, non-trimmed:    1695 kB,  current rate:  95092 kB/s</code>\
+<code>opos:  926889 MB, non-scraped:        0 B,  average rate:  79236 kB/s</code>\
+<code>non-tried:    1074 GB,  bad-sector:        0 B,    error rate:       0 B/s</code>\
+<code>rescued:  925804 MB,   bad areas:        0,        run time:  3h 14m 44s</code>\
+<code>pct rescued:   46.28%, read errors:       54,  remaining time:      3h 18m</code>\
+<code>time since last successful read:          0s</code>\
+<code>Copying non-tried blocks... Pass 1 (forwards)</code></p><p>After copying all the good blocks ddrescue will retry the bad blocks,
 forwards and backwards, this last part can take some time depending on
-how bad the disk is, example:</p><p><code> GNU ddrescue 1.22</code>\
-<code>    ipos:   17878 MB, non-trimmed:        0 B,  current rate:       0 B/s</code>\
-<code>    opos:   17878 MB, non-scraped:   362496 B,  average rate:  74898 kB/s</code>\
-<code> non-tried:        0 B,  bad-sector:    93696 B,    error rate:     102 B/s</code>\
-<code>   rescued:    2000 GB,   bad areas:      101,        run time:  7h 25m  8s</code>\
-<code> pct rescued:   99.99%, read errors:      260,  remaining time:         25m</code>\
-<code>                             time since last successful read:         10s</code>\
-<code> Scraping failed blocks... (forwards)</code></p><p>After the clone is complete you can mount the destination disk manually
+how bad the disk is, example:</p><p><code>GNU ddrescue 1.22</code>\
+<code>ipos:   17878 MB, non-trimmed:        0 B,  current rate:       0 B/s</code>\
+<code>opos:   17878 MB, non-scraped:   362496 B,  average rate:  74898 kB/s</code>\
+<code>non-tried:        0 B,  bad-sector:    93696 B,    error rate:     102 B/s</code>\
+<code>rescued:    2000 GB,   bad areas:      101,        run time:  7h 25m  8s</code>\
+<code>pct rescued:   99.99%, read errors:      260,  remaining time:         25m</code>\
+<code>time since last successful read:         10s</code>\
+<code>Scraping failed blocks... (forwards)</code></p><p>After the clone is complete you can mount the destination disk manually
 or using for example the UD plugin (if the cloned disk is unmountable
 run the appropriate filesystem repair tool, it might also be a good idea
 to run a filesystem check even if it mounts OK) and copy the recovered
@@ -499,9 +499,9 @@ data to the array, some files will likely be corrupt and if you have
 checksums or are using BTRFS you can easily find out which ones, if not
 see below.</p><p>If you don\&#x27;t have checksums for your files (or use btrfs) there\&#x27;s a
 way you can still check which files were affected:</p><p>Create a temporary text file with a text string not present on your
-data, e.g.:</p><p><code> printf &quot;Unraid &quot; &gt;~/fill.txt</code></p><p>Then fill the bad blocks on the destination disk with that string:</p><p><code> ddrescue -f --fill=- ~/fill.txt /dev/sdY /boot/ddrescue.log</code></p><p>Replace Y with the cloned disk (not the original) and use the existing
+data, e.g.:</p><p><code>printf &quot;Unraid &quot; &gt;~/fill.txt</code></p><p>Then fill the bad blocks on the destination disk with that string:</p><p><code>ddrescue -f --fill=- ~/fill.txt /dev/sdY /boot/ddrescue.log</code></p><p>Replace Y with the cloned disk (not the original) and use the existing
 ddrescue mapfile.</p><p>Finally mount the disk, manually or for example using the UD plugin and
-search for that string:</p><p><code> find /mnt/path/to/disk -type f -exec grep -l &quot;Unraid&quot; &#x27;{}&#x27; &#x27;;&#x27;</code></p><p>Replace /path/to/disk with the correct mount point, all files containing
+search for that string:</p><p><code>find /mnt/path/to/disk -type f -exec grep -l &quot;Unraid&quot; &#x27;{}&#x27; &#x27;;&#x27;</code></p><p>Replace /path/to/disk with the correct mount point, all files containing
 the string \&quot;Unraid\&quot; will be output and those are your corrupt files,
 this will take some time as all files on the disks will be scanned, the
 output is only displayed in the end, and if there\&#x27;s no output then the
@@ -624,7 +624,7 @@ as <em>Yes</em> or change it to the setting you want to use long term.</li><li>D
 User Share will never appear to be on the same mount point so a
 copy + delete is done automatically.</li><li>Make sure the mount points for source and target appear to be
 different at the Linux level.</li><li>Move between physical drives rather than at the User Share level.</li></ul><p>\</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="theme-doc-footer-edit-meta-row row"><div class="col"><a href="https://github.com/unraid/docs/tree/main/docs/unraid-os/manual/troubleshooting.md" target="_blank" rel="noreferrer noopener" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_vwxv"></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/unraid-os/manual/multi-language"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Multi-Language Support</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/unraid-os/manual/additional-settings"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Additional Settings</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#capturing_diagnostic_information" class="table-of-contents__link toc-highlight">Capturing Diagnostic Information</a><ul><li><a href="#system_diagnostics" class="table-of-contents__link toc-highlight">System Diagnostics</a></li><li><a href="#persistent_logs_syslog_server" class="table-of-contents__link toc-highlight">Persistent Logs (Syslog server)</a></li></ul></li><li><a href="#boot_issues" class="table-of-contents__link toc-highlight">Boot Issues</a><ul><li><a href="#preparing_the_flash_drive" class="table-of-contents__link toc-highlight">Preparing the flash drive</a></li><li><a href="#enabling_uefi_boot" class="table-of-contents__link toc-highlight">Enabling UEFI boot</a></li><li><a href="#boot_process" class="table-of-contents__link toc-highlight">Boot Process</a></li><li><a href="#boot_failures" class="table-of-contents__link toc-highlight">Boot Failures</a></li><li><a href="#lost_root_password" class="table-of-contents__link toc-highlight">Lost root Password</a></li><li><a href="#lost_boot_drive_and_do_not_know_which_are_the_parity_drives" class="table-of-contents__link toc-highlight">Lost boot drive and do not know which are the parity drives</a></li><li><a href="#backing_up_boot_drive" class="table-of-contents__link toc-highlight">Backing Up Boot Drive</a></li><li><a href="#manually_upgrading_or_downgrading_an_unraid_release." class="table-of-contents__link toc-highlight">Manually Upgrading (or Downgrading) an Unraid release.</a></li><li><a href="#bzimage_checksum_errorfailure_reading_flash_drive" class="table-of-contents__link toc-highlight">Bzimage checksum error/failure reading flash drive</a></li></ul></li><li><a href="#unclean_shutdowns" class="table-of-contents__link toc-highlight">Unclean Shutdowns</a></li><li><a href="#crash_issues" class="table-of-contents__link toc-highlight">Crash Issues</a><ul><li><a href="#ram_issues" class="table-of-contents__link toc-highlight">RAM Issues</a></li><li><a href="#over_clocking_ram" class="table-of-contents__link toc-highlight">Over-clocking RAM</a></li></ul></li><li><a href="#windows_connection_issues" class="table-of-contents__link toc-highlight">Windows Connection Issues</a><ul><li><a href="#name_resolution" class="table-of-contents__link toc-highlight">Name Resolution</a></li><li><a href="#stored_credentials" class="table-of-contents__link toc-highlight">Stored Credentials</a></li><li><a href="#multiple_sign_ons" class="table-of-contents__link toc-highlight">Multiple Sign-ons</a></li></ul></li><li><a href="#data_recovery" class="table-of-contents__link toc-highlight">Data Recovery</a><ul><li><a href="#unmountable_disks" class="table-of-contents__link toc-highlight">Unmountable Disk(s)</a></li><li><a href="#lost_array_configuration" class="table-of-contents__link toc-highlight">Lost Array Configuration</a></li><li><a href="#using_ddrescue_to_recover_data_from_a_failing_disk" class="table-of-contents__link toc-highlight">Using <em>ddrescue</em> to recover data from a failing disk</a></li></ul></li><li><a href="#docker" class="table-of-contents__link toc-highlight">Docker</a><ul><li><a href="#docker_image_full" class="table-of-contents__link toc-highlight">Docker Image Full</a></li><li><a href="#how_do_i_move_docker.img" class="table-of-contents__link toc-highlight">How do I move docker.img?</a></li><li><a href="#how_do_i_recreate_docker.img" class="table-of-contents__link toc-highlight">How do I recreate docker.img?</a></li><li><a href="#restoring_your_docker_applications" class="table-of-contents__link toc-highlight">Restoring your Docker Applications</a></li><li><a href="#further_information" class="table-of-contents__link toc-highlight">Further Information</a></li></ul></li><li><a href="#udma_crc_errors" class="table-of-contents__link toc-highlight">UDMA CRC Errors</a></li><li><a href="#cachepool_issues" class="table-of-contents__link toc-highlight">Cache/Pool issues</a><ul><li><a href="#mover_is_not_moving_files" class="table-of-contents__link toc-highlight">Mover is not moving files</a></li></ul></li></ul></div></div></div></div></main></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">Documentation</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/">Home</a></li><li class="footer__item"><a href="https://github.com/unraid/docs" target="_blank" rel="noopener noreferrer" class="footer__link-item">Contribute on Github</a></li></ul></div><div class="col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://forums.unraid.net" target="_blank" rel="noopener noreferrer" class="footer__link-item">Forums<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://discordapp.com/invite/unraid" target="_blank" rel="noopener noreferrer" class="footer__link-item">Discord<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div><div class="col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://unraid.net" target="_blank" rel="noopener noreferrer" class="footer__link-item">Unraid Home</a></li><li class="footer__item"><a href="https://newsletter.unraid.net" target="_blank" rel="noopener noreferrer" class="footer__link-item">Newsletter</a></li><li class="footer__item"><a href="https://unraid.net/blog" target="_blank" rel="noopener noreferrer" class="footer__link-item">Blog<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2023 Unraid Inc.</div></div></div></footer></div>
-<script src="/assets/js/runtime~main.1f02846a.js"></script>
+<script src="/assets/js/runtime~main.c686335a.js"></script>
 <script src="/assets/js/main.66ea8b2f.js"></script>
 </body>
 </html>

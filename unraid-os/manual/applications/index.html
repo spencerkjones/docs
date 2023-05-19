@@ -5,7 +5,7 @@
 <meta name="generator" content="Docusaurus v2.4.1">
 <title data-rh="true">Community Applications | Unraid Docs</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://docs.unraid.net/img/un-mark-gradient.svg"><meta data-rh="true" name="twitter:image" content="https://docs.unraid.net/img/un-mark-gradient.svg"><meta data-rh="true" property="og:url" content="https://docs.unraid.net/unraid-os/manual/applications"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Community Applications | Unraid Docs"><meta data-rh="true" name="description" content="This section discusses running applications on an Unraid server or"><meta data-rh="true" property="og:description" content="This section discusses running applications on an Unraid server or"><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://docs.unraid.net/unraid-os/manual/applications"><link data-rh="true" rel="alternate" href="https://docs.unraid.net/unraid-os/manual/applications" hreflang="en"><link data-rh="true" rel="alternate" href="https://docs.unraid.net/zh/unraid-os/manual/applications" hreflang="zh"><link data-rh="true" rel="alternate" href="https://docs.unraid.net/unraid-os/manual/applications" hreflang="x-default"><link rel="alternate" type="application/rss+xml" href="/blog/rss.xml" title="Unraid Docs RSS Feed">
 <link rel="alternate" type="application/atom+xml" href="/blog/atom.xml" title="Unraid Docs Atom Feed"><link rel="stylesheet" href="/assets/css/styles.bf18739c.css">
-<link rel="preload" href="/assets/js/runtime~main.1f02846a.js" as="script">
+<link rel="preload" href="/assets/js/runtime~main.c686335a.js" as="script">
 <link rel="preload" href="/assets/js/main.66ea8b2f.js" as="script">
 </head>
 <body class="navigation-with-keyboard" data-theme="light">
@@ -121,22 +121,22 @@ This can be done purely as a learning exercise or because you need
 access to features of the guest OS.</li><li>Multiple guest OS can be run in parallel on the same hardware.</li></ul><p><strong>Con:</strong></p><ul><li>You need to know how to use the <em>guest</em> OS.</li><li>The VM will need dedicated resources to run that are in addition to
 those required by Unraid itself.</li><li>VMs are far more resource-heavy than a docker container as they
 require much more in the way of dedicated resources to run.</li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="technology_stack">Technology Stack<a href="#technology_stack" class="hash-link" aria-label="Direct link to Technology Stack" title="Direct link to Technology Stack">​</a></h3><p>Unraid 6 features a number of key technologies to simplify the creation
-and management of localized VMs running on an Unraid host:</p><ul><li><p><strong>KVM</strong></p><ul><li><a href="https://www.linux-kvm.org/page/Main_Page" target="_blank" rel="noopener noreferrer">KVM</a> is a hypervisor
+and management of localized VMs running on an Unraid host:</p><ul><li><p><strong>KVM</strong></p><ul><li><p><a href="https://www.linux-kvm.org/page/Main_Page" target="_blank" rel="noopener noreferrer">KVM</a> is a hypervisor
 responsible for monitoring and managing the resources allocated
-to virtual machines.</li></ul><p>:   KVM is a component in the Linux kernel that allows it to act as
+to virtual machines.</p><p>:   KVM is a component in the Linux kernel that allows it to act as
 a hypervisor. Simply put, hypervisors are responsible for
 monitoring and managing the resources allocated to virtual
 machines. Virtual machines are emulated computers that run on
 top of a physical computer. Ever wanted to run three operating
 systems on one computer all at the same time? Hypervisors make
 this possible. Examples of other hypervisors include Xen, VMWare
-(ESX/ESXi), VirtualBox, and Microsoft Hyper-V</p><ul><li>Unlike other hypervisors, KVM is the only one that is built
-directly into and supported by the Linux kernel itself.</li></ul><p>:   All other type-1 hypervisors out there will load before Linux
+(ESX/ESXi), VirtualBox, and Microsoft Hyper-V</p></li><li><p>Unlike other hypervisors, KVM is the only one that is built
+directly into and supported by the Linux kernel itself.</p><p>:   All other type-1 hypervisors out there will load before Linux
 does, and then Linux runs in an underprivileged state to that
 hypervisor.
 :   By leveraging a hypervisor that is part of the Linux kernel
 itself, it means better support, less complexity, and more room
-for optimization improvements.</p></li><li><p><strong>QEMU</strong></p><ul><li><a href="https://www.qemu.org/" target="_blank" rel="noopener noreferrer">QEMU</a> is the component in the kernel
+for optimization improvements.</p></li></ul></li><li><p><strong>QEMU</strong></p><ul><li><a href="https://www.qemu.org/" target="_blank" rel="noopener noreferrer">QEMU</a> is the component in the kernel
 that manages / monitors resources allocated to virtual machines.</li><li>QEMU is responsible for the emulation of hardware components
 such as a motherboard, CPU, and various controllers that make up
 a virtual machine.</li><li>KVM can\&#x27;t work without QEMU, so you\&#x27;ll often times see KVM
@@ -158,24 +158,24 @@ systems will have HVM support. You can see if your Unraid server
 has HVM support by clicking on the <em>info</em> button at the top
 right of the Unraid GUI. If it shows as disabled then you might
 want to check your motherboard\&#x27;s BIOS to see if it needs to be
-enabled there.</li></ul></li><li><p><strong>VFIO</strong></p><ul><li><a href="https://www.linux-kvm.org/images/b/b4/2012-forum-VFIO.pdf" target="_blank" rel="noopener noreferrer">VFIO</a>
+enabled there.</li></ul></li><li><p><strong>VFIO</strong></p><ul><li><p><a href="https://www.linux-kvm.org/images/b/b4/2012-forum-VFIO.pdf" target="_blank" rel="noopener noreferrer">VFIO</a>
 (<strong>V</strong>irtual <strong>F</strong>unction <strong>IO</strong>) allows us to assign a physical
 device, such as a graphics card, directly to a virtual machine
 that in turn will provide driver support for the device
-directly.</li></ul><p>:   We can also prevent the device from accessing spaces in memory
+directly.</p><p>:   We can also prevent the device from accessing spaces in memory
 that are outside of that VM. This means that if something goes
 wrong with the device or its driver, the impact of such an event
-is limited to the virtual machine and not the host.</p><ul><li>VFIO prevents assigned devices from accessing spaces in memory
+is limited to the virtual machine and not the host.</p></li><li><p>VFIO prevents assigned devices from accessing spaces in memory
 that are outside of the VM to which they are assigned. This
 limits the impact of issues pertaining to device drivers and
 memory space, shielding Unraid OS from being exposed to
-unnecessary risk.</li><li>VFIO usage requires <strong>IOMMU</strong> capable hardware (your CPU must
+unnecessary risk.</p></li><li><p>VFIO usage requires <strong>IOMMU</strong> capable hardware (your CPU must
 have Intel VT-d or AMD-Vi
-support)<a href="https://www.kernel.org/doc/Documentation/vfio.txt" target="_blank" rel="noopener noreferrer">1</a>.</li><li>IOMMU is required to be able to pass through hardware to a VM on
+support)<a href="https://www.kernel.org/doc/Documentation/vfio.txt" target="_blank" rel="noopener noreferrer">1</a>.</p></li><li><p>IOMMU is required to be able to pass through hardware to a VM on
 Unraid. You can see if your Unraid server has IOMMU support by
 clicking on the <em>info</em> button at the top right of the Unraid
 GUI. If it shows as disabled then you might want to check your
-motherboard\&#x27;s BIOS to see if it needs to be enabled there.<ul><li>IOMMU support requires support in the CPU, motherboard, and
+motherboard\&#x27;s BIOS to see if it needs to be enabled there.</p><ul><li>IOMMU support requires support in the CPU, motherboard, and
 BIOS to all be present.</li><li>IOMMU is often referred to as <em>hardware pass-through</em> in the
 context of a VM.</li><li>IOMMU allows a VM to get direct access to hardware and thus
 tends to give better performance in using that hardware and
@@ -233,7 +233,7 @@ Unraid. The port to be used for such clients is displayed in the
 Unraid GUI on the VM tab when a VM is running. Using such an
 alternative client can work in cases where the NoVNC client does
 not work correctly for some reason.</li></ul></li></ul><p>\</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="theme-doc-footer-edit-meta-row row"><div class="col"><a href="https://github.com/unraid/docs/tree/main/docs/unraid-os/manual/applications.md" target="_blank" rel="noreferrer noopener" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_vwxv"></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/unraid-os/manual/vm-management"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Managing VMs</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/unraid-os/manual/multi-language"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Multi-Language Support</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#overview_1" class="table-of-contents__link toc-highlight">Overview</a></li><li><a href="#community_applications_ca" class="table-of-contents__link toc-highlight">Community Applications (CA)</a><ul><li><a href="#finding_applications" class="table-of-contents__link toc-highlight">Finding applications</a></li><li><a href="#installing_applications" class="table-of-contents__link toc-highlight">Installing Applications</a></li><li><a href="#removing_applications_showing_installed_applications" class="table-of-contents__link toc-highlight">Removing Applications / Showing Installed Applications</a></li><li><a href="#re_installing_applications" class="table-of-contents__link toc-highlight">Re-Installing Applications</a></li><li><a href="#support_for_applications" class="table-of-contents__link toc-highlight">Support for applications</a></li></ul></li><li><a href="#plugins" class="table-of-contents__link toc-highlight">Plugins</a></li><li><a href="#docker_containers" class="table-of-contents__link toc-highlight">Docker Containers</a></li><li><a href="#virtual_machines" class="table-of-contents__link toc-highlight">Virtual Machines</a><ul><li><a href="#technology_stack" class="table-of-contents__link toc-highlight">Technology Stack</a></li></ul></li></ul></div></div></div></div></main></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">Documentation</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/">Home</a></li><li class="footer__item"><a href="https://github.com/unraid/docs" target="_blank" rel="noopener noreferrer" class="footer__link-item">Contribute on Github</a></li></ul></div><div class="col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://forums.unraid.net" target="_blank" rel="noopener noreferrer" class="footer__link-item">Forums<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://discordapp.com/invite/unraid" target="_blank" rel="noopener noreferrer" class="footer__link-item">Discord<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div><div class="col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://unraid.net" target="_blank" rel="noopener noreferrer" class="footer__link-item">Unraid Home</a></li><li class="footer__item"><a href="https://newsletter.unraid.net" target="_blank" rel="noopener noreferrer" class="footer__link-item">Newsletter</a></li><li class="footer__item"><a href="https://unraid.net/blog" target="_blank" rel="noopener noreferrer" class="footer__link-item">Blog<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2023 Unraid Inc.</div></div></div></footer></div>
-<script src="/assets/js/runtime~main.1f02846a.js"></script>
+<script src="/assets/js/runtime~main.c686335a.js"></script>
 <script src="/assets/js/main.66ea8b2f.js"></script>
 </body>
 </html>

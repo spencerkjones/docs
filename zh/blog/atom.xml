@@ -6,7 +6,7 @@
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://docs.unraid.net/zh/blog"/>
     <subtitle>Unraid Docs Blog</subtitle>
-    <icon>https://docs.unraid.net/zh/img/favicon.ico</icon>
+    <icon>https://docs.unraid.net/zh/img/favicon.svg</icon>
     <entry>
         <title type="html"><![CDATA[Welcome]]></title>
         <id>https://docs.unraid.net/zh/blog/welcome</id>
